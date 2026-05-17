@@ -1,158 +1,2681 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adham Ahmed | Video Editor & Web Designer</title>
-    <meta name="description" content="Portfolio of Adham Ahmed, Video Editor & Web Designer">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <nav>
-        <div class="logo">Adham<span>.</span></div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="hamburger"><i class="fas fa-bars"></i></div>
-    </nav>
+<!-- saved from url=(0052)file:///C:/Users/MASTER/Documents/konnash/index.html -->
+<html lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Debt Manager | Professional Management</title><!-- Performance & Speed Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/">
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <p class="greeting">Hello, I'm</p>
-            <h1>Adham Ahmed</h1>
-            <h2 class="typing-text">Video Editor & Web Designer</h2>
-            <p class="hero-desc">Transforming ideas into visually stunning digital experiences.</p>
-            <div class="hero-btns">
-                <a href="#portfolio" class="btn primary">View My Work</a>
-                <a href="#contact" class="btn secondary">Get In Touch</a>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome CDN for reliability -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- html2pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async="" defer=""></script>
+    <!-- Firebase Realtime Database SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+        import { getDatabase, ref, push, set, remove, onValue, off } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDfgO7tVjztx4j-4A4RHE8-zeaDYggpnx8",
+            authDomain: "adham-project.firebaseapp.com",
+            databaseURL: "https://adham-project-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "adham-project",
+            storageBucket: "adham-project.firebasestorage.app",
+            messagingSenderId: "103669813823",
+            appId: "1:103669813823:web:626f1fb15543ef2fe59e8a",
+            measurementId: "G-2FN5JHRNHK"
+        };
+
+        const firebaseApp = initializeApp(firebaseConfig);
+        const db = getDatabase(firebaseApp);
+
+        // Expose RTDB helpers to the global scope so the main script can call them
+        window._firebase = {
+            db,
+            ref,
+            push,
+            set,
+            remove,
+            onValue,
+            off,
+            unsubscribe: null   // holds the active listener ref for cleanup
+        };
+
+        // Signal that Firebase is ready
+        window.dispatchEvent(new Event('firebase-ready'));
+    </script>
+
+    <style>
+        :root {
+            --bg-main: #0a0a0c;
+            --bg-card: rgba(26, 26, 30, 0.7);
+            --bg-card-hover: rgba(35, 35, 40, 0.9);
+            --accent-primary: #FFD700;
+            --accent-secondary: #ffb800;
+            --accent-glow: rgba(255, 215, 0, 0.3);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a5;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --success: #00e676;
+            --success-bg: rgba(0, 230, 118, 0.1);
+            --danger: #ff3d00;
+            --danger-bg: rgba(255, 61, 0, 0.1);
+            --glass-blur: blur(12px);
+            --theme-icon: "\f185"; /* sun icon */
+        }
+
+        /* Blue/Indigo Theme */
+        body.theme-indigo {
+            --bg-main: #050a15;
+            --bg-card: rgba(10, 20, 40, 0.7);
+            --bg-card-hover: rgba(15, 30, 60, 0.9);
+            --accent-primary: #4cc9f0;
+            --accent-secondary: #4361ee;
+            --accent-glow: rgba(76, 201, 240, 0.2);
+            --border-color: rgba(76, 201, 240, 0.15);
+        }
+
+        /* Emerald/Green Theme */
+        body.theme-emerald {
+            --bg-main: #050f0c;
+            --bg-card: rgba(10, 30, 25, 0.7);
+            --bg-card-hover: rgba(15, 40, 35, 0.9);
+            --accent-primary: #2ecc71;
+            --accent-secondary: #27ae60;
+            --accent-glow: rgba(46, 204, 113, 0.2);
+            --border-color: rgba(46, 204, 113, 0.15);
+        }
+
+        /* Ruby/Red Theme */
+        body.theme-ruby {
+            --bg-main: #100505;
+            --bg-card: rgba(30, 10, 10, 0.7);
+            --bg-card-hover: rgba(40, 15, 15, 0.9);
+            --accent-primary: #ff4d4d;
+            --accent-secondary: #d63031;
+            --accent-glow: rgba(255, 77, 77, 0.2);
+            --border-color: rgba(255, 77, 77, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Outfit', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Background Glow */
+        .ambient-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            top: -200px;
+            left: -200px;
+            z-index: -1;
+            opacity: 0.5;
+            pointer-events: none;
+            animation: float 10s infinite alternate ease-in-out;
+        }
+
+        .ambient-glow.right {
+            top: auto;
+            bottom: -200px;
+            left: auto;
+            right: -200px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            animation: float-reverse 12s infinite alternate;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        @keyframes float-reverse {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(-50px, -50px);
+            }
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 48px;
+            width: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: transparent;
+            filter: drop-shadow(0 4px 12px rgba(255, 215, 0, 0.4));
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-primary), #fff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-primary);
+            color: var(--bg-main);
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: var(--bg-main);
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--accent-glow);
+            filter: brightness(1.1);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 60px;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeUp 1s forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--accent-primary);
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 5%;
+            margin-bottom: 60px;
+            justify-content: center;
+        }
+
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            background: var(--bg-card-hover);
+            border-color: rgba(255, 215, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            color: var(--accent-primary);
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .card h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Table */
+        .debts {
+            padding: 0 5% 80px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .debts h2 {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .debts h2 i {
+            color: var(--accent-primary);
+        }
+
+        .table-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+        }
+
+        thead {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        th {
+            padding: 20px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 14px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 20px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .user-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-glow);
+            color: var(--accent-primary);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .amount {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .badge.unpaid {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--accent-primary);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .badge.paid {
+            background: var(--success-bg);
+            color: var(--success);
+            border: 1px solid rgba(0, 230, 118, 0.2);
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        .action-btn.edit:hover {
+            color: var(--accent-primary);
+        }
+
+        .action-btn.delete:hover {
+            color: var(--danger);
+        }
+
+        .action-btn.whatsapp {
+            color: #25D366;
+        }
+        
+        .action-btn.whatsapp:hover {
+            color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        /* WhatsApp Green */
+
+        /* Modals */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .modal-header h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .close-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-btn:hover {
+            color: var(--danger);
+            transform: rotate(90deg);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            background: rgba(255, 215, 0, 0.05);
+            box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .amount-adjust-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .amount-adjust-group input {
+            flex: 1;
+            text-align: center;
+            font-family: 'Outfit';
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .btn-action {
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: 0.3s;
+            font-family: inherit;
+            min-width: 90px;
+        }
+
+        .btn-payment {
+            background: var(--danger-bg);
+            border-color: rgba(255, 61, 0, 0.3);
+            color: var(--danger);
+        }
+
+        .btn-payment:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-invoice {
+            background: var(--success-bg);
+            border-color: rgba(0, 230, 118, 0.3);
+            color: var(--success);
+        }
+
+        .btn-invoice:hover {
+            background: var(--success);
+            color: white;
+        }
+
+        /* Tabs */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            padding: 0 5%;
+            gap: 15px;
+        }
+
+        .tab-btn {
+            padding: 12px 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab-btn.active {
+            background: var(--accent-primary);
+            color: var(--bg-main);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: var(--bg-card-hover);
+            border-color: rgba(255, 215, 0, 0.3);
+            color: #fff;
+        }
+
+        #factorySection {
+            display: none;
+        }
+
+        /* Edit History List */
+        .history-container {
+            margin-top: 25px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            max-height: 250px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .history-item {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .history-date {
+            font-family: 'Outfit';
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .history-val {
+            font-family: 'Outfit';
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .history-val.increase {
+            color: var(--success);
+        }
+
+        .history-val.decrease {
+            color: var(--danger);
+        }
+
+        .history-val.neutral {
+            color: var(--accent-primary);
+        }
+
+        .history-note {
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border-right: 3px solid var(--accent-primary);
+            color: #ddd;
+            line-height: 1.4;
+        }
+
+        #receipt-container {
+            display: none;
+        }
+
+        /* Voice Notes Styling */
+        .notes-wrapper {
+            position: relative;
+        }
+
+        .mic-btn {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 5;
+        }
+
+        .mic-btn:hover {
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .mic-btn.recording {
+            color: var(--danger);
+            border-color: var(--danger);
+            animation: pulse-red 1.5s infinite;
+            background: rgba(255, 61, 0, 0.1);
+        }
+
+        @keyframes pulse-red {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 61, 0, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 61, 0, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 61, 0, 0);
+            }
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 15px;
+                padding: 15px 5%;
+                margin-bottom: 10px;
+            }
+
+            header div {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+
+            header .btn:not(.settings-btn) {
+                flex: 1;
+                min-width: 140px;
+                font-size: 13px;
+                padding: 10px;
+            }
+
+            .hero {
+                padding: 20px 15px 30px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+                margin-bottom: 15px;
+            }
+
+            .hero p {
+                font-size: 16px;
+                margin-bottom: 25px;
+                display: none;
+            }
+
+            /* Hide long text on mobile */
+            .hero .btn-primary {
+                width: 100%;
+                font-size: 16px;
+                padding: 15px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                padding: 0 10px;
+                margin-bottom: 30px;
+            }
+
+            .card {
+                padding: 15px 10px;
+                border-radius: 15px;
+            }
+
+            .card-icon {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .card h2 {
+                font-size: 26px;
+                margin-bottom: 5px;
+            }
+
+            .card p {
+                font-size: 12px;
+            }
+
+            .tabs-container {
+                flex-direction: row;
+                padding: 0 10px;
+                gap: 8px;
+                margin-bottom: 20px;
+            }
+
+            .tab-btn {
+                flex: 1;
+                padding: 10px;
+                font-size: 12px;
+                justify-content: center;
+                border-radius: 10px;
+            }
+
+            .tab-btn i {
+                font-size: 14px;
+            }
+
+            /* Hide icons to save space */
+
+            .debts {
+                padding: 0 10px 40px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .section-header h2 {
+                font-size: 20px;
+                justify-content: center;
+            }
+
+            div.padding-container {
+                padding: 0 10px !important;
+            }
+
+            .form-control[placeholder="بحث عن اسم في القائمة الحالية..."] {
+                font-size: 13px;
+            }
+
+            /* Mobile Table as Cards */
+            .table-container {
+                overflow: visible;
+                border: none;
+                background: transparent;
+                box-shadow: none;
+            }
+
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                display: block;
+                width: 100%;
+            }
+
+            table {
+                min-width: 100%;
+            }
+
+            thead {
+                display: none;
+            }
+
+            /* Hide headers */
+            tbody tr {
+                background: rgba(26, 26, 30, 0.9);
+                border: 1px solid var(--border-color);
+                border-radius: 16px;
+                margin-bottom: 20px;
+                padding: 15px;
+                backdrop-filter: var(--glass-blur);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            tbody tr:hover {
+                transform: none;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px 5px !important;
+                border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+                /* Better separation */
+                font-size: 14px !important;
+                text-align: left;
+            }
+
+            td:last-child {
+                border-bottom: none;
+                padding-bottom: 0 !important;
+                margin-top: 10px;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: var(--text-secondary);
+                font-size: 13px;
+            }
+
+            .user-cell {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 12px;
+                width: 100%;
+            }
+
+            td:first-child::before {
+                display: none;
+            }
+
+            td:first-child {
+                padding-top: 5px !important;
+                padding-bottom: 15px !important;
+                border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+                margin-bottom: 5px;
+            }
+
+            .avatar {
+                width: 42px;
+                height: 42px;
+                font-size: 16px;
+            }
+
+            .amount {
+                font-size: 16px;
+                font-weight: 800;
+                color: var(--text-primary);
+            }
+
+            .action-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+                flex: 1;
+                max-width: 80px;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                background: rgba(0, 0, 0, 0.2);
+            }
+
+            .actions {
+                width: 100%;
+                gap: 12px;
+                justify-content: center;
+            }
+
+            .modal {
+                width: 95%;
+                padding: 20px;
+                border-radius: 16px;
+                margin: 10px;
+                max-height: 85vh;
+            }
+
+            .modal-header h3 {
+                font-size: 18px;
+            }
+
+            .close-btn {
+                font-size: 20px;
+            }
+
+            .form-group label {
+                font-size: 13px;
+                margin-bottom: 5px;
+            }
+
+            .form-control {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .amount-adjust-group {
+                flex-wrap: wrap;
+            }
+
+            .amount-adjust-group input {
+                width: 100%;
+                order: -1;
+                margin-bottom: 10px;
+            }
+
+            .amount-adjust-group button {
+                flex: 1;
+                padding: 10px;
+                font-size: 13px;
+            }
+
+            .modal-footer {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 20px;
+                padding-top: 15px;
+            }
+
+            .modal-footer .btn {
+                width: 100%;
+                justify-content: center;
+                font-size: 14px;
+                padding: 12px;
+            }
+
+            /* Stats cards specific fixed on mobile */
+            .stats .card:nth-child(1),
+            .stats .card:nth-child(4) {
+                grid-column: span 2;
+            }
+        }
+
+        /* ===== Toast ===== */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(20, 20, 24, 0.95);
+            color: #fff;
+            padding: 13px 24px;
+            border-radius: 14px;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 8px 24px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 9999;
+            font-size: 15px;
+            font-weight: 600;
+            white-space: nowrap;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast.success {
+            border-left: 4px solid #00e676;
+        }
+
+        .toast.error {
+            border-left: 4px solid #ff3d00;
+        }
+
+        .toast.info {
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        /* ===== Empty State ===== */
+        .empty {
+            text-align: center;
+            padding: 50px 20px;
+            opacity: 0.6;
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .empty i {
+            font-size: 40px;
+            margin-bottom: 12px;
+            display: block;
+            color: var(--accent-primary);
+            opacity: 0.5;
+        }
+
+        /* Contact Picker Hover */
+        #pickContactBtn:hover {
+            background: var(--accent-primary) !important;
+            color: var(--bg-main) !important;
+        }
+
+        /* Performance Hints */
+        .ambient-glow {
+            will-change: transform;
+            transition: opacity 0.5s;
+        }
+
+        .hero {
+            will-change: transform, opacity;
+        }
+
+        .table-container {
+            contain: content;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(50px, 50px, 0);
+            }
+        }
+
+        @keyframes float-reverse {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-50px, -50px, 0);
+            }
+        }
+        /* Settings Dropdown */
+        .settings-selector { position: relative; z-index: 1001; }
+        .settings-btn {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color);
+            width: 45px; height: 45px; border-radius: 12px; color: var(--text-primary);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: 0.3s; font-size: 18px;
+        }
+        .settings-btn:hover {
+            background: rgba(255, 255, 255, 0.1); border-color: var(--accent-primary);
+            transform: rotate(90deg);
+        }
+        .settings-dropdown {
+            position: absolute; top: calc(100% + 10px); left: 0; right: auto;
+            background: rgba(15, 15, 20, 0.95); border: 1px solid var(--border-color);
+            border-radius: 15px; width: 260px; display: none; flex-direction: column;
+            padding: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: var(--glass-blur); animation: fadeIn 0.2s ease-out;
+            transform-origin: top left;
+        }
+        .settings-dropdown.show { display: flex; }
+        .settings-item {
+            padding: 12px 15px; border-radius: 8px; display: flex; align-items: center;
+            gap: 12px; cursor: pointer; transition: 0.2s; font-size: 14px;
+            color: var(--text-primary); font-weight: 600;
+        }
+        .settings-item:hover { background: rgba(255, 215, 0, 0.1); color: var(--accent-primary); }
+        .settings-item i { width: 20px; text-align: center; font-size: 16px; }
+        .settings-divider { height: 1px; background: var(--border-color); margin: 8px 0; }
+        .settings-group-title {
+            padding: 5px 15px; font-size: 11px; color: var(--text-secondary);
+            text-transform: uppercase; display: flex; align-items: center; gap: 8px; margin-top: 5px;
+        }
+        .settings-lang-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-top: 8px;
+        }
+        .lang-option {
+            padding: 8px 10px; border-radius: 8px; display: flex; align-items: center;
+            gap: 8px; cursor: pointer; transition: 0.2s; font-size: 13px; color: var(--text-secondary);
+            background: rgba(255,255,255,0.02); border: 1px solid transparent;
+        }
+        .lang-option:hover {
+            background: rgba(255, 215, 0, 0.1); color: var(--text-primary); border-color: rgba(255, 215, 0, 0.3);
+        }
+        .lang-option.active {
+            background: var(--accent-primary); color: var(--bg-main); font-weight: bold;
+        }
+        .lang-option img { width: 24px; height: auto; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+        html[dir="ltr"] .settings-dropdown { left: auto; right: 0; transform-origin: top right; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* PDF Layout LTR/RTL support */
+        #receipt[dir="ltr"] .align-start { text-align: left !important; }
+        #receipt[dir="ltr"] .align-end { text-align: right !important; }
+        #receipt[dir="rtl"] .align-start { text-align: right !important; }
+        #receipt[dir="rtl"] .align-end { text-align: left !important; }
+    </style>
+<link id="googleidentityservice" type="text/css" media="all" href="./Debt Manager _ Professional Management_files/style" rel="stylesheet"><style id="googleidentityservice_button_styles">.qJTHM{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;color:#202124;direction:rtl;-webkit-touch-callout:none;font-family:Roboto-Regular,arial,sans-serif;-webkit-font-smoothing:antialiased;font-weight:400;margin:0;overflow:hidden;-webkit-text-size-adjust:100%}.ynRLnc{right:-9999px;position:absolute;top:-9999px}.L6cTce{display:none}.bltWBb{overflow-wrap:break-word;word-break:break-word}.hSRGPd{color:#1a73e8;cursor:pointer;font-weight:500;text-decoration:none}.Bz112c-W3lGp{height:16px;width:16px}.Bz112c-E3DyYd{height:20px;width:20px}.Bz112c-r9oPif{height:24px;width:24px}.Bz112c-u2z5K{height:36px;width:36px}.Bz112c-uaxL4e{border-radius:10px}.LgbsSe-Bz112c{display:block}.S9gUrf-YoZ4jf{border:none;margin:0;padding:0}.S9gUrf-YoZ4jf *{border:none;margin:0;padding:0}.fFW7wc-ibnC6b>.aZ2wEe>div{border-color:#4285f4}.P1ekSe-ZMv3u{-webkit-transition:height .2s linear;transition:height .2s linear}.P1ekSe-ZMv3u>div:first-child{background-color:#1a73e8!important;-webkit-transition:width .3s linear;transition:width .3s linear}.P1ekSe-ZMv3u>div:nth-child(2){background-image:-webkit-gradient(linear,right top,left top,from(rgba(255,255,255,.7)),to(rgba(255,255,255,.7))),-webkit-gradient(linear,right top,left top,from(#1a73e8),to(#1a73e8))!important;background-image:-webkit-linear-gradient(right,rgba(255,255,255,.7),rgba(255,255,255,.7)),-webkit-linear-gradient(right,#1a73e8,#1a73e8)!important;background-image:linear-gradient(270deg,rgba(255,255,255,.7),rgba(255,255,255,.7)),linear-gradient(270deg,#1a73e8,#1a73e8)!important}.P1ekSe-ZMv3u>div:nth-child(3){background-image:-webkit-gradient(linear,right top,left top,from(rgba(255,255,255,.7)),to(rgba(255,255,255,.7))),-webkit-gradient(linear,right top,left top,from(#1a73e8),to(#1a73e8))!important;background-image:-webkit-linear-gradient(right,rgba(255,255,255,.7),rgba(255,255,255,.7)),-webkit-linear-gradient(right,#1a73e8,#1a73e8)!important;background-image:linear-gradient(270deg,rgba(255,255,255,.7),rgba(255,255,255,.7)),linear-gradient(270deg,#1a73e8,#1a73e8)!important}.haAclf{display:inline-block}.nsm7Bb-HzV7m-LgbsSe{border-radius:4px;box-sizing:border-box;-webkit-transition:background-color .218s,border-color .218s;transition:background-color .218s,border-color .218s;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-webkit-appearance:none;background-color:#fff;background-image:none;border:1px solid #dadce0;color:#3c4043;cursor:pointer;font-family:Google Sans,arial,sans-serif;font-size:14px;height:40px;letter-spacing:.25px;outline:none;overflow:hidden;padding:0 12px;position:relative;text-align:center;vertical-align:middle;white-space:nowrap;width:auto}@media screen and (-ms-high-contrast:active){.nsm7Bb-HzV7m-LgbsSe{border:2px solid windowText;color:windowText}}@media screen and (preferes-contrast:more){.nsm7Bb-HzV7m-LgbsSe{color:#000}}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe{font-size:14px;height:32px;letter-spacing:.25px;padding:0 10px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe{font-size:11px;height:20px;letter-spacing:.3px;padding:0 8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe{padding:0;width:40px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe{width:32px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe{width:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK{border-radius:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.pSzOP-SxQuSe{border-radius:16px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.purZT-SxQuSe{border-radius:10px}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc{border:none;color:#fff}.nsm7Bb-HzV7m-LgbsSe.MFS4be-v3pZbf-Ia7Qfc{background-color:#1a73e8}.nsm7Bb-HzV7m-LgbsSe.MFS4be-JaPV2b-Ia7Qfc{background-color:#202124;color:#e8eaed}@media screen and (prefers-contrast:more){.nsm7Bb-HzV7m-LgbsSe.MFS4be-JaPV2b-Ia7Qfc{color:#fff}}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:18px;margin-left:8px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:14px;min-width:14px;width:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:10px;min-width:10px;width:10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin-right:8px;margin-left:-4px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:10px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:4px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-top-right-radius:3px;border-bottom-right-radius:3px;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;align-items:center;background-color:#fff;height:36px;margin-right:-10px;margin-left:12px;min-width:36px;width:36px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c,.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:28px;margin-right:-8px;margin-left:10px;min-width:28px;width:28px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:16px;margin-right:-6px;margin-left:8px;min-width:16px;width:16px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:3px;margin-right:2px;margin-left:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:8px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;-webkit-box-align:center;align-items:center;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-flex-wrap:nowrap;flex-wrap:nowrap;height:100%;position:relative;width:100%}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX{-webkit-box-pack:center;-webkit-justify-content:center;justify-content:center}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{-webkit-flex-grow:1;-webkit-box-flex:1;flex-grow:1;font-family:Google Sans,arial,sans-serif;font-weight:500;overflow:hidden;text-overflow:ellipsis;vertical-align:top}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-weight:300}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX .nsm7Bb-HzV7m-LgbsSe-BPrWId{-webkit-flex-grow:0;-webkit-box-flex:0;flex-grow:0}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-MJoBVe{-webkit-transition:background-color .218s;transition:background-color .218s;bottom:0;right:0;position:absolute;left:0;top:0}.nsm7Bb-HzV7m-LgbsSe:focus,.nsm7Bb-HzV7m-LgbsSe:hover{box-shadow:none;border-color:rgb(210,227,252);outline:none}.nsm7Bb-HzV7m-LgbsSe:focus-within{outline:2px solid #00639b;border-color:transparent}.nsm7Bb-HzV7m-LgbsSe:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.08)}.nsm7Bb-HzV7m-LgbsSe:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.1)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.24)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.32)}.nsm7Bb-HzV7m-LgbsSe .n1UuX-DkfjY{border-radius:50%;display:-webkit-box;display:-webkit-flex;display:flex;height:20px;margin-right:-4px;margin-left:8px;min-width:20px;width:20px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-family:Roboto;font-size:12px;text-align:right}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .fmcmS,.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .ssJRIf{overflow:hidden;text-overflow:ellipsis}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;-webkit-box-align:center;align-items:center;color:#5f6368;fill:#5f6368;font-size:11px;font-weight:400}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.MFS4be-Ia7Qfc .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{color:#e8eaed;fill:#e8eaed}@media screen and (prefers-contrast:more){.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff,.nsm7Bb-HzV7m-LgbsSe.jVeSEe.MFS4be-Ia7Qfc .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{color:#000;fill:#000}}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .Bz112c{height:18px;margin:-3px 2px -3px -3px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-top-right-radius:0;border-bottom-right-radius:0;border-top-left-radius:3px;border-bottom-left-radius:3px;margin-right:12px;margin-left:-10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:18px}.L5Fo6c-sM5MNb{border:0;display:block;right:0;position:relative;top:0}.L5Fo6c-bF1uUb{border-radius:4px;bottom:0;cursor:pointer;right:0;position:absolute;left:0;top:0}.L5Fo6c-bF1uUb:focus{border:none;outline:none}sentinel{}</style></head>
+
+<body class="theme-indigo">
+
+    <div class="ambient-glow"></div>
+    <div class="ambient-glow right"></div>
+
+    <header>
+        <div class="logo">
+            <img src="123.png" alt="Logo" decoding="async" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-primary); box-shadow: 0 0 15px var(--accent-glow);">
+            <span class="logo-text" data-i18n="logoText">Your Debts</span>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <div class="settings-selector">
+                <button class="settings-btn" id="settingsBtn" onclick="toggleSettingsDropdown()" title="الإعدادات">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <div class="settings-dropdown" id="settingsDropdown">
+                    <div class="settings-item" id="authMenuItem" onclick="openModal(&#39;loginModal&#39;)"><i class="fas fa-sign-out-alt"></i> <span>Logout (ادهم)</span></div>
+                    <div class="settings-divider"></div>
+                    <div class="settings-item" onclick="cycleTheme()">
+                        <i class="fas fa-palette"></i> <span data-i18n="changeTheme">Change Theme</span>
+                    </div>
+                    <div class="settings-divider"></div>
+                    <div class="settings-group-title">
+                        <i class="fas fa-globe"></i> <span data-i18n="changeLanguage">Change Language</span>
+                    </div>
+                    <div class="settings-lang-grid">
+                        <div class="lang-option" id="lang-ar" onclick="setLanguage('ar')"><img src="https://flagcdn.com/w40/sa.png" alt="AR"> AR</div>
+                        <div class="lang-option active" id="lang-en" onclick="setLanguage('en')"><img src="https://flagcdn.com/w40/us.png" alt="EN"> EN</div>
+                        <div class="lang-option" id="lang-fr" onclick="setLanguage('fr')"><img src="https://flagcdn.com/w40/fr.png" alt="FR"> FR</div>
+                        <div class="lang-option" id="lang-de" onclick="setLanguage('de')"><img src="https://flagcdn.com/w40/de.png" alt="DE"> DE</div>
+                        <div class="lang-option" id="lang-nl" onclick="setLanguage('nl')"><img src="https://flagcdn.com/w40/nl.png" alt="NL"> NL</div>
+                        <div class="lang-option" id="lang-es" onclick="setLanguage('es')"><img src="https://flagcdn.com/w40/es.png" alt="ES"> ES</div>
+                        <div class="lang-option" id="lang-it" onclick="setLanguage('it')"><img src="https://flagcdn.com/w40/it.png" alt="IT"> IT</div>
+                        <div class="lang-option" id="lang-pt" onclick="setLanguage('pt')"><img src="https://flagcdn.com/w40/pt.png" alt="PT"> PT</div>
+                        <div class="lang-option" id="lang-br" onclick="setLanguage('br')"><img src="https://flagcdn.com/w40/br.png" alt="BR"> BR</div>
+                        <div class="lang-option" id="lang-tr" onclick="setLanguage('tr')"><img src="https://flagcdn.com/w40/tr.png" alt="TR"> TR</div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="hero-visual">
-            <div class="abstract-shape">
-                <div class="circle"></div>
-                <div class="square"></div>
-                <i class="fas fa-video floating-icon icon-1"></i>
-                <i class="fas fa-code floating-icon icon-2"></i>
-                <i class="fas fa-film floating-icon icon-3"></i>
-            </div>
+    </header>
+
+    <section class="hero" style="display: block;">
+        <h1 data-i18n="heroTitle">Manage your debts <span>with ease and professionalism</span></h1>
+        <p data-i18n="heroSubtitle">Export PDF receipts, track debts, and adjust accounts with one click.</p>
+        <button class="btn btn-primary" onclick="openAdd()"><i class="fas fa-plus"></i> <span data-i18n="addDebt">Add New Debt</span></button>
+    </section>
+
+    <section class="stats" style="display: grid;">
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-users"></i></div>
+            <h2 id="stat-total-users">3</h2>
+            <p data-i18n="totalCustomers">Total Customers</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-money-bill-wave"></i></div>
+            <h2 class="amount" id="stat-total-debt" style="color:var(--accent-primary)">121,997</h2>
+            <p data-i18n="customerReceivables">Receivables (EGP)</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-factory"></i></div>
+            <h2 class="amount" id="stat-total-factory" style="color:var(--danger)">0</h2>
+            <p data-i18n="factoryDebts">Factory Debts (EGP)</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-check-circle" style="color:var(--success)"></i></div>
+            <h2 class="amount" id="stat-total-paid" style="color:var(--success)">0</h2>
+            <p data-i18n="paidAccounts">Paid Accounts</p>
         </div>
     </section>
 
-    <section id="about" class="about">
-        <div class="section-title">
-            <h2>About Me</h2>
-            <div class="underline"></div>
+    <div class="tabs-container" style="display: flex;">
+        <button id="customerTab" class="tab-btn active" onclick="switchTab(&#39;customer&#39;)">
+            <i class="fas fa-users"></i> <span data-i18n="customersTab">Customers (Owed to me)</span>
+        </button>
+        <button id="factoryTab" class="tab-btn" onclick="switchTab(&#39;factory&#39;)">
+            <i class="fas fa-industry"></i> <span data-i18n="factoryTab">Factory (Owed by me)</span>
+        </button>
+    </div>
+
+    <!-- Shared Search Bar & Sort -->
+    <div style="padding: 0 5%; margin-bottom: 25px;">
+        <div style="display: flex; gap: 10px; max-width: 500px; margin: 0 auto; align-items: center;">
+            <div style="position: relative; flex: 1;">
+                <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for a name..." data-i18n-placeholder="searchPlaceholder" class="form-control" style="padding-right:35px; text-align: right;">
+                <i class="fas fa-search" style="position: absolute; right: 12px; top: 15px; color: var(--text-secondary);"></i>
+            </div>
+            <div style="position: relative;">
+                <select id="sortSelect" onchange="applySort(this.value)" class="form-control" style="padding-right: 35px; width: 140px; font-size: 13px; appearance: none; cursor: pointer; border-color: var(--accent-primary);">
+                    <option value="date-desc" data-i18n="sortLatest">🕒 Recently Modified</option>
+                    <option value="amount-desc" data-i18n="sortHighest">💰 Highest Balance</option>
+                    <option value="amount-asc" data-i18n="sortLowest">📉 Lowest Balance</option>
+                </select>
+                <i class="fas fa-filter" style="position: absolute; right: 12px; top: 15px; color: var(--accent-primary); pointer-events: none;"></i>
+            </div>
         </div>
-        <div class="about-container">
-            <div class="about-text">
-                <h3>Passionate about digital creativity</h3>
-                <p>I am a 16-year-old high school student passionate about video editing and digital creativity. I enjoy creating and editing both short-form videos and YouTube content.</p>
-                <p>I am continuously improving my skills by learning new editing techniques and creative ideas. My ultimate goal is to become a professional video editor and web designer in the future.</p>
+    </div>
+
+    <section class="debts" id="customerSection" style="display: block;">
+        <div class="section-header">
+            <h2 data-i18n="customerList">Customer List</h2>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th data-i18n="name"><i class="fas fa-user"></i> Name</th>
+                        <th data-i18n="amount"><i class="fas fa-hand-holding-usd"></i> Amount</th>
+                        <th data-i18n="lastEdit"><i class="fas fa-history"></i> Last Edit</th>
+                        <th data-i18n="notes"><i class="fas fa-comment-alt"></i> Notes</th>
+                        <th data-i18n="status"><i class="fas fa-info-circle"></i> Status</th>
+                        <th data-i18n="actions"><i class="fas fa-tools"></i> Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="dataRows">
+                <tr>
+                    <td data-label="Name">
+                        <div class="user-cell">
+                            <div class="avatar">ن</div>
+                            <div style="font-weight: 700;">نتالبؤءئ</div>
+                        </div>
+                    </td>
+                    <td data-label="Amount" class="amount">21,000 <span style="font-size:12px;color:var(--text-secondary)">EGP</span></td>
+                    <td data-label="Last Edit" style="font-family: Outfit; font-size: 14px; color: var(--text-secondary);">01/05/2026</td>
+                    <td data-label="Notes" style="font-size: 14px; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">---</td>
+                    <td data-label="Status"><span class="badge unpaid">Has Debt</span></td>
+                    <td data-label="Actions">
+                        <div class="actions">
+                            <button class="action-btn whatsapp" onclick="openWhatsApp(&#39;01155685200&#39;)"><i class="fab fa-whatsapp"></i></button>
+                            <button class="action-btn edit" onclick="openEdit(&#39;-OrWZYyGZxuvOISMTMDM&#39;)"><i class="fas fa-pen"></i></button>
+                            <button class="action-btn delete" onclick="deleteDebt(&#39;-OrWZYyGZxuvOISMTMDM&#39;)"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Name">
+                        <div class="user-cell">
+                            <div class="avatar">ل</div>
+                            <div style="font-weight: 700;">لارؤءئ</div>
+                        </div>
+                    </td>
+                    <td data-label="Amount" class="amount">100,000 <span style="font-size:12px;color:var(--text-secondary)">EGP</span></td>
+                    <td data-label="Last Edit" style="font-family: Outfit; font-size: 14px; color: var(--text-secondary);">01/05/2026</td>
+                    <td data-label="Notes" style="font-size: 14px; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">---</td>
+                    <td data-label="Status"><span class="badge unpaid">Has Debt</span></td>
+                    <td data-label="Actions">
+                        <div class="actions">
+                            <button class="action-btn whatsapp" onclick="openWhatsApp(&#39;011121242&#39;)"><i class="fab fa-whatsapp"></i></button>
+                            <button class="action-btn edit" onclick="openEdit(&#39;-OrWZqKKXrGVkuEf7LPC&#39;)"><i class="fas fa-pen"></i></button>
+                            <button class="action-btn delete" onclick="deleteDebt(&#39;-OrWZqKKXrGVkuEf7LPC&#39;)"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Name">
+                        <div class="user-cell">
+                            <div class="avatar">ت</div>
+                            <div style="font-weight: 700;">تالبيسش</div>
+                        </div>
+                    </td>
+                    <td data-label="Amount" class="amount">997 <span style="font-size:12px;color:var(--text-secondary)">EGP</span></td>
+                    <td data-label="Last Edit" style="font-family: Outfit; font-size: 14px; color: var(--text-secondary);">01/05/2026</td>
+                    <td data-label="Notes" style="font-size: 14px; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">---</td>
+                    <td data-label="Status"><span class="badge unpaid">Has Debt</span></td>
+                    <td data-label="Actions">
+                        <div class="actions">
+                            <button class="action-btn whatsapp" onclick="openWhatsApp(&#39;0111&#39;)"><i class="fab fa-whatsapp"></i></button>
+                            <button class="action-btn edit" onclick="openEdit(&#39;-OrW_-ul6CZYPSYhnGaA&#39;)"><i class="fas fa-pen"></i></button>
+                            <button class="action-btn delete" onclick="deleteDebt(&#39;-OrW_-ul6CZYPSYhnGaA&#39;)"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </td>
+                </tr></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="debts" id="factorySection" style="display: none;">
+        <div class="section-header">
+            <h2 data-i18n="factoryList">Factory List</h2>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th data-i18n="name"><i class="fas fa-building"></i> Name</th>
+                        <th data-i18n="amount"><i class="fas fa-file-invoice-dollar"></i> Amount</th>
+                        <th data-i18n="lastEdit"><i class="fas fa-history"></i> Last Edit</th>
+                        <th data-i18n="notes"><i class="fas fa-comment-alt"></i> Notes</th>
+                        <th data-i18n="status"><i class="fas fa-info-circle"></i> Status</th>
+                        <th data-i18n="actions"><i class="fas fa-tools"></i> Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="factoryTableBody"></tbody><div id="empty-factoryTableBody" class="empty"><i class="fas fa-inbox"></i><h3>📭 No Data</h3><p>Start by adding a client</p></div>
+            </table>
+        </div>
+    </section>
+
+    <!-- Add Debt Modal -->
+    <div class="modal-overlay" id="addModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-plus-circle"></i>
+                    <span data-i18n="addNewDebtTitle">Add New Debt</span>
+                </h3>
+                <button class="close-btn" onclick="closeModal(&#39;addModal&#39;)"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label data-i18n="accountType">Account Type</label>
+                    <div style="display: flex; gap: 20px;">
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; border: 1px solid var(--border-color);">
+                            <input type="radio" name="accountType" value="customer" checked=""> 
+                            <i class="fas fa-user-tag" style="color: var(--accent-primary);"></i>
+                            <span data-i18n="customerRadio">Customer (Owed)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; border: 1px solid var(--border-color);">
+                            <input type="radio" name="accountType" value="factory"> 
+                            <i class="fas fa-industry" style="color: var(--danger);"></i>
+                            <span data-i18n="factoryRadio">Factory (I Owe)</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label style="display: flex; justify-content: space-between; align-items: center;">
+                        <span data-i18n="fullName">Full Name</span>
+                        <button id="pickContactBtn" onclick="selectContact()" style="background: rgba(255,215,0,0.1); border: 1px solid var(--accent-primary); color: var(--accent-primary); cursor: pointer; font-size: 11px; padding: 4px 10px; border-radius: 8px; font-weight: bold; display: flex; align-items: center; gap: 4px; transition: 0.3s;">
+                            <i class="fas fa-address-book"></i> <span data-i18n="pickFromDevice">Pick from Contacts</span>
+                        </button>
+                    </label>
+                    <input type="text" id="pName" placeholder="Enter name" data-i18n-placeholder="pNamePlaceholder" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-phone-alt"></i> <span data-i18n="phoneLabel">Phone Number</span></label>
+                    <input type="text" id="addPhone" placeholder="Example: 1234567890" data-i18n-placeholder="phonePlaceholder" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-calendar-day"></i> <span data-i18n="dateLabel">Date</span></label>
+                    <input type="date" id="addDate" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-coins"></i> <span data-i18n="openingAmount">Opening Balance</span></label>
+                    <input type="number" id="pAmount" placeholder="0.00" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-sticky-note"></i> <span data-i18n="notesLabel">Notes</span></label>
+                    <div class="notes-wrapper">
+                        <textarea id="addNotes" rows="2" placeholder="Write details..." data-i18n-placeholder="notesPlaceholder" class="form-control"></textarea>
+                        <button class="mic-btn" onclick="toggleVoice(&#39;addNotes&#39;, this)" title="إملاء صوتي">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" style="border-color: var(--danger); color: var(--danger); flex: 1;" onclick="generatePDF(&#39;add&#39;)">
+                    <i class="fas fa-file-pdf"></i> <span data-i18n="downloadPdf">Download PDF</span>
+                </button>
+                <button id="saveBtn" class="btn btn-primary" style="flex: 2;" onclick="saveNewDebt()">
+                    <i class="fas fa-save"></i> <span data-i18n="saveDebt">Save Debt</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Debt Modal -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-user-edit"></i>
+                    <span><span data-i18n="editAccountTitle">Edit Account</span>: <span id="editUserName" style="color:#fff;">ىلارؤ</span></span>
+                </h3>
+                <button class="close-btn" onclick="closeModal(&#39;editModal&#39;)"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label><i class="fas fa-phone-alt"></i> <span data-i18n="phoneLabel">Phone Number</span></label>
+                    <input type="text" id="editPhone" placeholder="Example: 1234567890" data-i18n-placeholder="phonePlaceholder" class="form-control">
+                </div>
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 15px; border-radius: 12px; margin-bottom: 20px; text-align: center;">
+                    <p style="color: var(--text-secondary); margin-bottom: 5px; font-size: 14px;" data-i18n="currentTotalDebt">Current Total</p>
+                    <input type="number" id="editCurrentAmount" style="font-family: &#39;Outfit&#39;; font-size: 32px; color: var(--accent-primary); background: transparent; border: none; text-align: center; width: 80%; outline: none; border-bottom: 2px dashed rgba(255, 215, 0, 0.3); padding: 5px; font-weight: bold; margin: 0 auto; display: block;" title="تغيير الإجمالي مباشرة">
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-calendar-day"></i> <span data-i18n="adjustmentDate">Adjustment Date</span></label>
+                    <input type="date" id="editDate" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-calculator"></i> <span data-i18n="adjustmentLabel">Adjust Amount (+/-)</span></label>
+                    <div class="amount-adjust-group">
+                        <button class="btn-action btn-payment" onclick="adjustAmountInput(&#39;subtract&#39;)">
+                            <i class="fas fa-minus-circle"></i> <span data-i18n="paymentBtn">Payment (-)</span>
+                        </button>
+                        <input type="number" id="editAdjustment" placeholder="0.00" class="form-control">
+                        <button class="btn-action btn-invoice" onclick="adjustAmountInput(&#39;add&#39;)">
+                            <i class="fas fa-plus-circle"></i> <span data-i18n="invoiceBtn">Invoice (+)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-sticky-note"></i> <span data-i18n="notesLabel">Notes</span></label>
+                    <div class="notes-wrapper">
+                        <textarea id="editNotes" rows="2" placeholder="Notes..." data-i18n-placeholder="currentNotesPlaceholder" class="form-control"></textarea>
+                        <button class="mic-btn" onclick="toggleVoice(&#39;editNotes&#39;, this)" title="إملاء صوتي">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- History Section -->
+                <div class="form-group">
+                    <label style="color: var(--accent-primary);"><i class="fas fa-history"></i> <span data-i18n="transactionHistory">Transaction History</span></label>
+                    <div class="history-container" id="editHistoryList">
+                    <div class="history-item">
+                        <div class="history-top">
+                            <div class="history-date"><i class="far fa-calendar-alt"></i> 01/05/2026</div>
+                            <div class="history-val increase">Increase (Invoice): 1,000 EGP</div>
+                        </div>
+                        <div class="history-note">
+                            Invoice Added
+                        </div>
+                    </div>
                 
-                <div class="personal-info">
-                    <div class="info-item"><span class="label">Name:</span><span class="value">Adham Ahmed El-Sayed Abdelazim</span></div>
-                    <div class="info-item"><span class="label">Age:</span><span class="value">16</span></div>
-                    <div class="info-item"><span class="label">Education:</span><span class="value">High School Student</span></div>
-                </div>
-            </div>
-            <div class="about-stats">
-                <div class="stat-card">
-                    <i class="fas fa-video"></i>
-                    <h4>Video Editing</h4>
-                    <p>Shorts / Reels / YouTube</p>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h4>Web Design</h4>
-                    <p>Learning & Creating</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="skills">
-        <div class="section-title">
-            <h2>Skills & Tools</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3><i class="fas fa-star"></i> Specialization</h3>
-                <ul class="skill-list">
-                    <li>Short-form Content Editing (Reels / Shorts / TikTok)</li>
-                    <li>YouTube Video Editing</li>
-                    <li>Creative Post-Production</li>
-                    <li>Web Design (Learning in progress)</li>
-                </ul>
-            </div>
-            <div class="tools-category">
-                <h3><i class="fas fa-toolbox"></i> Software I Use</h3>
-                <div class="tools-grid">
-                    <div class="tool-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Premiere Pro" class="tool-icon">
-                        <span>Adobe Premiere Pro</span>
-                    </div>
-                    <div class="tool-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/2/26/CapCut_logo.png" alt="CapCut" class="tool-icon">
-                        <span style="color: white; padding-top: 5px;">CapCut</span>
+                    <div class="history-item">
+                        <div class="history-top">
+                            <div class="history-date"><i class="far fa-calendar-alt"></i> 01/05/2026</div>
+                            <div class="history-val neutral">Opening Balance: 19,999 EGP</div>
+                        </div>
+                        <div class="history-note">
+                            Opening Balance
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="portfolio">
-        <div class="section-title">
-            <h2>My Work</h2>
-            <div class="underline"></div>
-            <p class="subtitle">A glimpse into my video editing projects</p>
-        </div>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <div class="portfolio-img placeholder-1"><i class="fas fa-play-circle play-icon"></i></div>
-                <div class="portfolio-info"><h3>YouTube Vlog Edit</h3><p>Engaging cuts and pacing for long-form content.</p></div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-img placeholder-2"><i class="fas fa-play-circle play-icon"></i></div>
-                <div class="portfolio-info"><h3>TikTok/Reels Short</h3><p>High-retention editing with captions and transitions.</p></div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-img placeholder-3"><i class="fas fa-play-circle play-icon"></i></div>
-                <div class="portfolio-info"><h3>Cinematic Montage</h3><p>Color grading and emotion-driven sequence.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="section-title">
-            <h2>Get In Touch</h2>
-            <div class="underline"></div>
-            <p class="subtitle">Looking for a video editor? Let's talk!</p>
-        </div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p>adham@example.com</p></div></div>
-                <div class="contact-item"><i class="fas fa-map-marker-alt"></i><div><h4>Location</h4><p>Available Worldwide</p></div></div>
-            </div>
-            <form class="contact-form">
-                <div class="input-group">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
                 </div>
-                <input type="text" placeholder="Subject" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="btn primary">Send Message <i class="fas fa-paper-plane"></i></button>
-            </form>
-        </div>
-    </section>
 
-    <footer><p>&copy; 2024 Adham Ahmed. Designed & Built with passion.</p></footer>
-    <script src="script.js"></script>
-</body>
-</html>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" style="border-color: var(--danger); color: var(--danger); flex: 1;" onclick="generatePDF(&#39;edit&#39;)">
+                    <i class="fas fa-file-pdf"></i> <span data-i18n="receiptBtn">Receipt</span>
+                </button>
+                <button class="btn btn-primary" style="flex: 1;" onclick="saveEdit()">
+                    <i class="fas fa-check-circle"></i> <span data-i18n="saveUpdate">Save Changes</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 data-i18n="loginTitle">Login / Sign Up</h3>
+                <button class="close-btn" id="loginCloseBtn" onclick="closeModal(&#39;loginModal&#39;)" style="display: none;"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label><i class="fas fa-user-circle"></i> <span data-i18n="usernameLabel">Username</span></label>
+                    <input type="text" id="usernameInput" placeholder="Enter username" data-i18n-placeholder="usernamePlaceholder" class="form-control" style="text-align: center; font-size: 18px;">
+                </div>
+                <div style="text-align: center; color: var(--text-secondary); font-size: 13px; line-height: 1.5; margin-bottom: 20px;" data-i18n="loginHint">Your data is saved to this name.</div>
+                <button class="btn btn-primary" style="width: 100%; margin-bottom: 20px;" onclick="loginUser()">
+                    <i class="fas fa-sign-in-alt"></i> <span data-i18n="loginBtn">Login</span>
+                </button>
+
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <div style="flex: 1; height: 1px; background: var(--border-color);"></div>
+                    <span style="color: var(--text-secondary); font-size: 12px;" data-i18n="orWithGoogle">Or with Google</span>
+                    <div style="flex: 1; height: 1px; background: var(--border-color);"></div>
+                </div>
+
+                <!-- Google Sign-In Button Container -->
+                <div id="googleBtnContainer" style="display: flex; justify-content: center; width: 100%;">
+                    <div id="g_id_onload" data-client_id="619423852215-f0v8tejfmuii9f4lvakoqve7htrbvlhh.apps.googleusercontent.com" data-callback="handleCredentialResponse" data-auto_prompt="false">
+                    </div>
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="filled_black" data-text="signin_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden PDF Receipt Template - Ultra Professional Version -->
+    <div id="receipt-container" style="position: absolute; left: -9999px; top: -9999px;">
+        <div id="receipt" style="padding: 0; background: #fff; color: #1a1a1a; direction: rtl; font-family: &#39;Tajawal&#39;, &#39;Segoe UI&#39;, Arial, sans-serif; width: 800px; border: 1px solid #ddd; line-height: 1.6; text-rendering: optimizeLegibility;">
+
+            <!-- Top Accent Bar -->
+            <div style="height: 12px; background: linear-gradient(90deg, #ccac00, #ffeb3b, #ccac00);"></div>
+
+            <div style="padding: 40px;">
+                <!-- Header Section -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 30px;">
+                    <div class="align-start" style="text-align: right;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                            <img id="r-logo" src="123.png" crossOrigin="anonymous" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #ccac00;">
+                            <div>
+                                <h1 style="margin: 0; font-size: 28px; font-weight: 900; color: #000; letter-spacing: 1px;">
+                                    DebtManager</h1>
+                                <p id="r-subtitle" style="margin: 0; font-size: 14px; color: #666; font-weight: 700;">نظام الإدارة
+                                    المالية المتقدمة</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-end" style="text-align: left; direction: ltr;">
+                        <h2 id="r-statement" style="margin: 0 0 10px 0; font-size: 22px; font-weight: 800; color: #ccac00; text-transform: uppercase;">
+                            Statement / كشف حساب</h2>
+                        <div style="font-size: 12px; color: #888; font-weight: 600;">
+                            REFERENCE: #<span id="r-ref" style="font-family: &#39;Outfit&#39;; color: #000;"></span><br>
+                            DATE: <span id="r-date" style="color: #000;"></span> | TIME: <span id="r-time" style="font-family: &#39;Outfit&#39;; color: #000;"></span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entities Info -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px;">
+                    <div style="padding: 20px; border: 1px solid #eee; border-radius: 12px; background: #fafafa;">
+                        <p id="r-to-customer" style="margin: 0 0 10px 0; font-size: 11px; font-weight: 800; color: #ccac00; text-transform: uppercase;">
+                            إلى السيد / السادة | TO CUSTOMER:</p>
+                        <h3 style="margin: 0; font-size: 22px; font-weight: 800; color: #000;" id="r-name">---</h3>
+                        <div style="margin-top: 10px; font-size: 14px; color: #555;">
+                            <i class="fas fa-phone"></i> <span id="r-phone-label">رقم الهاتف:</span> <span id="r-phone" style="font-family: &#39;Outfit&#39;; font-weight: 700;">---</span>
+                        </div>
+                    </div>
+                    <div style="padding: 20px; border: 1px solid #eee; border-radius: 12px; display: flex; flex-direction: column; justify-content: center;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px dashed #ddd; padding-bottom: 8px;">
+                            <span id="r-account-type" style="font-size: 13px; color: #666;">نوع الحساب:</span>
+                            <span style="font-size: 14px; font-weight: 800; color: #000;" id="r-type">---</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span id="r-account-status" style="font-size: 13px; color: #666;">حالة الحساب:</span>
+                            <span id="r-active" style="font-size: 13px; font-weight: 700; color: #28a745;">نشط ومعتمد</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Summary Card -->
+                <div style="background: #000; border-radius: 20px; padding: 40px; margin-bottom: 45px; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                    <!-- Decorative element -->
+                    <div style="position: absolute; top: -50px; left: -50px; width: 150px; height: 150px; background: rgba(204, 172, 0, 0.1); border-radius: 50%;">
+                    </div>
+
+                    <div style="position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center;">
+                        <div class="align-start" style="text-align: right;">
+                            <h4 id="r-total-balance" style="margin: 0; color: #ccac00; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">
+                                إجمالي الرصيد المستحق للهذا الحساب</h4>
+                            <div style="font-size: 56px; font-weight: 900; color: #fff; font-family: &#39;Outfit&#39;;">
+                                <span id="r-amount">0.00</span> <small id="r-currency" style="font-size: 20px; font-weight: 400; color: #888;">EGP</small>
+                            </div>
+                        </div>
+                        <div class="align-end" style="text-align: left;">
+                             <img id="r-qr" src="" crossOrigin="anonymous" width="110" height="110" style="border: 5px solid #fff; border-radius: 12px; background: #fff;">
+                        </div>
+                    </div>
+                    <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                        <p style="margin: 0; font-size: 15px; color: #aaa;">
+                            <span id="r-amount-text" style="color: #fff; font-weight: 800;">---</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Detailed Transactions Header -->
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <div style="width: 5px; height: 30px; background: #ccac00; border-radius: 2px;"></div>
+                    <h3 id="r-history-title" style="margin: 0; font-size: 18px; font-weight: 800; color: #000;">سجل الحركات المالية الموثقة
+                    </h3>
+                </div>
+
+                <!-- Transaction Table -->
+                <table style="width: 100%; border-collapse: separate; border-spacing: 0; margin-bottom: 40px; border: 1px solid #eee; border-radius: 12px; overflow: hidden;">
+                    <thead>
+                        <tr style="background: #f8f9fa;">
+                            <th id="r-th-date" class="align-start" style="padding: 15px; text-align: right; font-size: 12px; color: #666; font-weight: 800; border-bottom: 2px solid #eee;">
+                                التاريخ</th>
+                            <th id="r-th-type" class="align-start" style="padding: 15px; text-align: right; font-size: 12px; color: #666; font-weight: 800; border-bottom: 2px solid #eee;">
+                                النوع</th>
+                            <th id="r-th-notes" class="align-start" style="padding: 15px; text-align: right; font-size: 12px; color: #666; font-weight: 800; border-bottom: 2px solid #eee;">
+                                البيان التفصيلي</th>
+                            <th id="r-th-amount" style="padding: 15px; text-align: center; font-size: 12px; color: #666; font-weight: 800; border-bottom: 2px solid #eee;">
+                                القيمة</th>
+                        </tr>
+                    </thead>
+                    <tbody id="r-history-body">
+                        <!-- Dynamic Rows -->
+                    </tbody>
+                </table>
+
+                <!-- Footnote Section -->
+                <div style="display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: flex-start; margin-top: 30px;">
+                    <div style="background: #fdfdfd; padding: 20px; border-radius: 12px; border: 1px dashed #ddd;">
+                        <h5 id="r-notes-title" style="margin: 0 0 10px 0; font-size: 13px; color: #333; font-weight: 800;">ملاحظات وشروط:
+                        </h5>
+                        <p id="r-notes" style="margin: 0; font-size: 13px; color: #666; line-height: 1.6;">
+                            يرجى مراجعة الحساب في غضون 48 ساعة من تاريخ الاستلام في حال وجود أي استفسار.
+                        </p>
+                    </div>
+                    <div style="text-align: center; display: flex; flex-direction: column; gap: 15px;">
+                        <a id="r-wa-link" href="file:///C:/Users/MASTER/Documents/konnash/index.html#" style="background: #25D366; color: #fff; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 14px; display: block; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);">
+                            <i class="fab fa-whatsapp"></i> ارسال عبر الواتس
+                        </a>
+                        <div style="padding-top: 20px; border-top: 1px solid #eee; font-size: 11px; color: #999;">
+                            توقيع المحاسب إلكترونياً
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brand Footer -->
+                <div style="margin-top: 60px; text-align: center; border-top: 1px solid #eee; padding-top: 20px;">
+                    <p style="margin: 0; font-size: 11px; color: #bbb; font-weight: 400; letter-spacing: 0.5px;">
+                        تم إنشاء هذا التقرير آلياً بواسطة نظام <span style="color: #ccac00; font-weight: 800;">DebtManager PRO</span> لعام 2026.
+                    </p>
+                    <p style="margin: 5px 0 0 0; font-size: 10px; color: #ccc;">
+                        CONFIDENTIAL &amp; SECURE FINANCIAL STATEMENT
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+
+    <script type="text/javascript">
+        // ======================================================
+        // Theme Management
+        // ======================================================
+        const themes = ['default', 'theme-indigo', 'theme-emerald', 'theme-ruby'];
+        let currentThemeIndex = themes.indexOf(localStorage.getItem('userTheme') || 'default');
+        if (currentThemeIndex === -1) currentThemeIndex = 0;
+
+        function applyTheme(theme) {
+            document.body.classList.remove('theme-indigo', 'theme-emerald', 'theme-ruby');
+            if (theme !== 'default') {
+                document.body.classList.add(theme);
+            }
+            localStorage.setItem('userTheme', theme);
+        }
+
+        function cycleTheme() {
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            applyTheme(themes[currentThemeIndex]);
+            showToast('🎨 تم تغيير مظهر الموقع');
+        }
+
+        // Initialize theme on load
+        applyTheme(themes[currentThemeIndex]);
+
+        const langData = {
+            ar: { name: 'العربية', flag: 'https://flagcdn.com/w40/sa.png', dir: 'rtl' },
+            en: { name: 'English', flag: 'https://flagcdn.com/w40/us.png', dir: 'ltr' },
+            fr: { name: 'Français', flag: 'https://flagcdn.com/w40/fr.png', dir: 'ltr' },
+            de: { name: 'Deutsch', flag: 'https://flagcdn.com/w40/de.png', dir: 'ltr' },
+            nl: { name: 'Nederlands', flag: 'https://flagcdn.com/w40/nl.png', dir: 'ltr' },
+            es: { name: 'Español', flag: 'https://flagcdn.com/w40/es.png', dir: 'ltr' },
+            it: { name: 'Italiano', flag: 'https://flagcdn.com/w40/it.png', dir: 'ltr' },
+            pt: { name: 'Português', flag: 'https://flagcdn.com/w40/pt.png', dir: 'ltr' },
+            br: { name: 'Brasileiro', flag: 'https://flagcdn.com/w40/br.png', dir: 'ltr' },
+            tr: { name: 'Türkçe', flag: 'https://flagcdn.com/w40/tr.png', dir: 'ltr' }
+        };
+
+        const translations = {
+            ar: { siteTitle: "إدارة الديون | Debt Manager", logoText: "ديونك", quickWa: "واتساب سريع", login: "تسجيل الدخول", logout: "خروج", heroTitle: "إدارة ديونك <span>بكل سهولة واحترافية</span>", heroSubtitle: "تصدير إيصالات PDF، تتبع الديون، وتعديل الحسابات بضغطة زر واحدة.", addDebt: "إضــــافة ديــن جديـد", totalCustomers: "عدد العملاء", customerReceivables: "مستحقات الزبائن (جنيه)", factoryDebts: "مديونات المصنع (جنيه)", paidAccounts: "حسابات مسددة", customersTab: "الزبائن (لي فلوس)", factoryTab: "المصنع (عليّ فلوس)", searchPlaceholder: "بحث عن اسم في القائمة...", sortLatest: "🕒 الأحدث تعديلاً", sortHighest: "💰 الأعلى رصيداً", sortLowest: "📉 الأقل رصيداً", customerList: "قائمة الزبائن", factoryList: "قائمة مديونات المصنع", name: "الاسم", amount: "المبلغ", lastEdit: "آخر تعديل", notes: "الملاحظات", status: "الحالة", actions: "إجراءات", addNewDebtTitle: "إضافة دين جديد", accountType: "نوع الحساب", customerRadio: "زبون (لي فلوس)", factoryRadio: "مصنع (عليّ فلوس)", fullName: "الاسم الكامل", pickFromDevice: "اختيار من الجهاز", pNamePlaceholder: "أدخل اسم الشخص أو المصنع", phoneLabel: "رقم الهاتف", phonePlaceholder: "مثل: 201234567890", dateLabel: "تاريخ المعاملة", openingAmount: "المبلغ الافتتاحي (جنيه)", notesLabel: "الملاحظات والتفاصيل", notesPlaceholder: "اكتب أية تفاصيل...", downloadPdf: "تحميل كـ PDF", saveDebt: "حفظ الدين", editAccountTitle: "تعديل حساب", currentTotalDebt: "إجمالي الدين الحالي", adjustmentDate: "تاريخ التعديل", adjustmentLabel: "تعديل المبلغ (+/-)", paymentBtn: "دفعة (-)", invoiceBtn: "فاتورة (+)", currentNotesPlaceholder: "ملاحظات...", transactionHistory: "سـجل المعاملات", receiptBtn: "إيصال المعاملة", saveUpdate: "حفظ التحديث", quickWaTitle: "واتساب سريع", phoneWithCode: "أدخل رقم الهاتف", waHint: "فتح محادثة مباشرة.", startChat: "ابدأ المحادثة", loginTitle: "تسجيل الدخول", usernameLabel: "اسم المستخدم", usernamePlaceholder: "أدخل اسمك", loginHint: "سيتم حفظ بياناتك لهذا الاسم.", loginBtn: "دخول للحساب", orWithGoogle: "أو عبر جوجل", paid: "تم السداد", hasDebt: "عليه ديون", weHaveDebt: "علينا دين", currency: "جنيه", confirmDelete: "هل أنت متأكد من حذف هذا السجل؟", loginError: "يرجى إدخال اسم المستخدم", fillError: "يرجى إدخال الاسم والمبلغ", saveSuccess: "✅ تم حفظ السجل بنجاح", updateSuccess: "✏️ تم تحديث الحساب بنجاح", changeTheme: "تغيير المظهر", changeLanguage: "تغيير اللغة", noHistory: "لا يوجد سجل لمعاملات سابقة", invoiceAdded: "إضافة فاتورة", paymentAdded: "سداد دفعة", openingBalance: "رصيد افتتاحي", increaseVal: "زيادة (فاتورة)", decreaseVal: "خصم (دفعة)", emptyTitle: "مفيش بيانات", emptySubtitle: "ابدأ بإضافة أول عميل", contactImported: "✅ تم استيراد جهة الاتصال بنجاح", contactError: "❌ حدث خطأ أثناء الوصول لجهات الاتصال", contactUnsupported: "⚠️ متصفحك لا يدعم اختيار جهات الاتصال بشكل مباشر", generatingPDF: "⏳ جاري إنشاء التقرير الفاخر...", pdfSuccess: "✅ تم تحميل التقرير بنجاح", pdfError: "❌ حدث خطأ أثناء تحميل الملف", pdfSubtitle: "نظام الإدارة المالية المتقدمة", pdfStatement: "Statement / كشف حساب", pdfToCustomer: "إلى السيد / السادة | TO CUSTOMER:", pdfAccountType: "نوع الحساب:", pdfAccountStatus: "حالة الحساب:", pdfActive: "نشط ومعتمد", pdfTotalBalance: "إجمالي الرصيد المستحق للهذا الحساب", pdfHistoryTitle: "سجل الحركات المالية الموثقة", pdfNotesTitle: "ملاحظات وشروط:", pdfNotesText: "يرجى مراجعة الحساب في غضون 48 ساعة من تاريخ الاستلام في حال وجود أي استفسار." },
+            en: { siteTitle: "Debt Manager | Professional Management", logoText: "Your Debts", quickWa: "Quick WhatsApp", login: "Login", logout: "Logout", heroTitle: "Manage your debts <span>with ease and professionalism</span>", heroSubtitle: "Export PDF receipts, track debts, and adjust accounts with one click.", addDebt: "Add New Debt", totalCustomers: "Total Customers", customerReceivables: "Receivables (EGP)", factoryDebts: "Factory Debts (EGP)", paidAccounts: "Paid Accounts", customersTab: "Customers (Owed to me)", factoryTab: "Factory (Owed by me)", searchPlaceholder: "Search for a name...", sortLatest: "🕒 Recently Modified", sortHighest: "💰 Highest Balance", sortLowest: "📉 Lowest Balance", customerList: "Customer List", factoryList: "Factory List", name: "Name", amount: "Amount", lastEdit: "Last Edit", notes: "Notes", status: "Status", actions: "Actions", addNewDebtTitle: "Add New Debt", accountType: "Account Type", customerRadio: "Customer (Owed)", factoryRadio: "Factory (I Owe)", fullName: "Full Name", pickFromDevice: "Pick from Contacts", pNamePlaceholder: "Enter name", phoneLabel: "Phone Number", phonePlaceholder: "Example: 1234567890", dateLabel: "Date", openingAmount: "Opening Balance", notesLabel: "Notes", notesPlaceholder: "Write details...", downloadPdf: "Download PDF", saveDebt: "Save Debt", editAccountTitle: "Edit Account", currentTotalDebt: "Current Total", adjustmentDate: "Adjustment Date", adjustmentLabel: "Adjust Amount (+/-)", paymentBtn: "Payment (-)", invoiceBtn: "Invoice (+)", currentNotesPlaceholder: "Notes...", transactionHistory: "Transaction History", receiptBtn: "Receipt", saveUpdate: "Save Changes", quickWaTitle: "Quick WhatsApp", phoneWithCode: "Enter Phone with Code", waHint: "Direct chat without saving number.", startChat: "Start Chat", loginTitle: "Login / Sign Up", usernameLabel: "Username", usernamePlaceholder: "Enter username", loginHint: "Your data is saved to this name.", loginBtn: "Login", orWithGoogle: "Or with Google", paid: "Paid", hasDebt: "Has Debt", weHaveDebt: "We Owe", currency: "EGP", confirmDelete: "Are you sure you want to delete this record?", loginError: "Please enter a username", fillError: "Please enter name and amount", saveSuccess: "✅ Record saved successfully", updateSuccess: "✏️ Account updated successfully", changeTheme: "Change Theme", changeLanguage: "Change Language", noHistory: "No past transactions", invoiceAdded: "Invoice Added", paymentAdded: "Payment Added", openingBalance: "Opening Balance", increaseVal: "Increase (Invoice)", decreaseVal: "Decrease (Payment)", emptyTitle: "No Data", emptySubtitle: "Start by adding a client", contactImported: "✅ Contact imported", contactError: "❌ Error accessing contacts", contactUnsupported: "⚠️ Browser not supported", generatingPDF: "⏳ Generating PDF...", pdfSuccess: "✅ PDF downloaded", pdfError: "❌ Error downloading", pdfSubtitle: "Financial Management System", pdfStatement: "Statement", pdfToCustomer: "TO CUSTOMER:", pdfAccountType: "Account Type:", pdfAccountStatus: "Account Status:", pdfActive: "Active", pdfTotalBalance: "Total Balance Due", pdfHistoryTitle: "Transaction History", pdfNotesTitle: "Notes & Terms:", pdfNotesText: "Please review within 48 hours." },
+            fr: { siteTitle: "Gestionnaire de Dettes", logoText: "Vos Dettes", quickWa: "WhatsApp Rapide", login: "Connexion", logout: "Déconnexion", heroTitle: "Gérez vos dettes <span>facilement</span>", heroSubtitle: "Exportez PDF, suivez les dettes en un clic.", addDebt: "Ajouter Dette", totalCustomers: "Total Clients", customerReceivables: "Créances (EUR)", factoryDebts: "Dettes Usine (EUR)", paidAccounts: "Comptes Payés", customersTab: "Clients", factoryTab: "Usine", searchPlaceholder: "Rechercher...", sortLatest: "🕒 Plus Récent", sortHighest: "💰 Solde Élevé", sortLowest: "📉 Solde Faible", customerList: "Liste Clients", factoryList: "Liste Usine", name: "Nom", amount: "Montant", lastEdit: "Dernière Edit", notes: "Notes", status: "Statut", actions: "Actions", addNewDebtTitle: "Ajouter Dette", accountType: "Type", customerRadio: "Client", factoryRadio: "Usine", fullName: "Nom Complet", pickFromDevice: "Contacts", pNamePlaceholder: "Nom", phoneLabel: "Téléphone", phonePlaceholder: "Ex: 123...", dateLabel: "Date", openingAmount: "Solde Initial", notesLabel: "Notes", notesPlaceholder: "Détails...", downloadPdf: "PDF", saveDebt: "Sauver", editAccountTitle: "Editer", currentTotalDebt: "Total Actuel", adjustmentDate: "Date", adjustmentLabel: "Ajuster (+/-)", paymentBtn: "Paiement", invoiceBtn: "Facture", currentNotesPlaceholder: "Notes...", transactionHistory: "Historique", receiptBtn: "Reçu", saveUpdate: "Mettre à jour", quickWaTitle: "WhatsApp", phoneWithCode: "Numéro", waHint: "Chat direct.", startChat: "Démarrer", loginTitle: "Connexion", usernameLabel: "Nom", usernamePlaceholder: "Nom", loginHint: "Sauvegarde auto.", loginBtn: "Entrer", orWithGoogle: "Google", paid: "Payé", hasDebt: "A une dette", weHaveDebt: "On doit", currency: "EUR", confirmDelete: "Supprimer?", loginError: "Nom requis", fillError: "Champs requis", saveSuccess: "✅ Sauvé", updateSuccess: "✏️ Mis à jour", changeTheme: "Changer le Thème", changeLanguage: "Changer la Langue", noHistory: "Aucune transaction", invoiceAdded: "Facture Ajoutée", paymentAdded: "Paiement Ajouté", openingBalance: "Solde Initial", increaseVal: "Augmenter (Facture)", decreaseVal: "Diminuer (Paiement)", emptyTitle: "Aucune Donnée", emptySubtitle: "Ajoutez un client", contactImported: "✅ Contact importé", contactError: "❌ Erreur contacts", contactUnsupported: "⚠️ Non supporté", generatingPDF: "⏳ Génération du PDF...", pdfSuccess: "✅ PDF téléchargé", pdfError: "❌ Erreur de téléchargement", pdfSubtitle: "Système de Gestion", pdfStatement: "Relevé", pdfToCustomer: "AU CLIENT :", pdfAccountType: "Type de Compte :", pdfAccountStatus: "Statut du Compte :", pdfActive: "Actif", pdfTotalBalance: "Solde Total", pdfHistoryTitle: "Historique des Transactions", pdfNotesTitle: 'Notes & Conditions :', pdfNotesText: 'Veuillez vérifier sous 48h.' },
+            de: { siteTitle: "Schuldenmanager", logoText: "Deine Schulden", quickWa: "Schnell WhatsApp", login: "Anmelden", logout: "Abmelden", heroTitle: "Schulden <span>einfach verwalten</span>", heroSubtitle: "PDF exportieren, Konten verfolgen.", addDebt: "Schulden Hinzufügen", totalCustomers: "Kunden Gesamt", customerReceivables: "Forderungen (EUR)", factoryDebts: "Werksschulden (EUR)", paidAccounts: "Bezahlte Konten", customersTab: "Kunden", factoryTab: "Werk", searchPlaceholder: "Suchen...", sortLatest: "🕒 Neueste", sortHighest: "💰 Höchster Stand", sortLowest: "📉 Niedrigster Stand", customerList: "Kundenliste", factoryList: "Werkliste", name: "Name", amount: "Betrag", lastEdit: "Geändert", notes: "Notizen", status: "Status", actions: "Aktionen", addNewDebtTitle: "Hinzufügen", accountType: "Typ", customerRadio: "Kunde", factoryRadio: "Werk", fullName: "Vollständiger Name", pickFromDevice: "Kontakte", pNamePlaceholder: "Name", phoneLabel: "Telefon", phonePlaceholder: "Ex: 123...", dateLabel: "Datum", openingAmount: "Anfangssaldo", notesLabel: "Notizen", notesPlaceholder: "Details...", downloadPdf: "PDF", saveDebt: "Speichern", editAccountTitle: "Bearbeiten", currentTotalDebt: "Gesamt", adjustmentDate: "Datum", adjustmentLabel: "Anpassen (+/-)", paymentBtn: "Zahlung", invoiceBtn: "Rechnung", currentNotesPlaceholder: "Notizen...", transactionHistory: "Verlauf", receiptBtn: "Beleg", saveUpdate: "Update", quickWaTitle: "WhatsApp", phoneWithCode: "Nummer", waHint: "Direkter Chat.", startChat: "Starten", loginTitle: "Login", usernameLabel: "Benutzer", usernamePlaceholder: "Name", loginHint: "Daten speichern.", loginBtn: "Login", orWithGoogle: "Google", paid: "Bezahlt", hasDebt: "Hat Schulden", weHaveDebt: "Wir schulden", currency: "EUR", confirmDelete: "Löschen?", loginError: "Name erforderlich", fillError: "Felder ausfüllen", saveSuccess: "✅ Gespeichert", updateSuccess: "✏️ Aktualisiert", changeTheme: "Thema ändern", changeLanguage: "Sprache ändern", noHistory: "Keine Transaktionen", invoiceAdded: "Rechnung Hinzugefügt", paymentAdded: "Zahlung Hinzugefügt", openingBalance: "Anfangssaldo", increaseVal: "Erhöhen (Rechnung)", decreaseVal: "Verringern (Zahlung)", emptyTitle: "Keine Daten", emptySubtitle: "Kunden hinzufügen", contactImported: "✅ Kontakt importiert", contactError: "❌ Fehler", contactUnsupported: "⚠️ Nicht unterstützt", generatingPDF: "⏳ PDF wird erstellt...", pdfSuccess: "✅ PDF heruntergeladen", pdfError: "❌ Fehler", pdfSubtitle: "Finanzmanagement", pdfStatement: "Kontoauszug", pdfToCustomer: "AN KUNDE:", pdfAccountType: "Kontotyp:", pdfAccountStatus: "Kontostatus:", pdfActive: "Aktiv", pdfTotalBalance: "Gesamtsaldo", pdfHistoryTitle: "Transaktionsverlauf", pdfNotesTitle: "Notizen & Bedingungen:", pdfNotesText: "Bitte innerhalb von 48h prüfen." },
+            nl: { siteTitle: "Schuldenbeheer", logoText: "Jouw Schulden", quickWa: "Snel WhatsApp", login: "Inloggen", logout: "Uitloggen", heroTitle: "Beheer schulden <span>gemakkelijk</span>", heroSubtitle: "PDF export, volg rekeningen.", addDebt: "Schuld Toevoegen", totalCustomers: "Totaal Klanten", customerReceivables: "Tegoeden (EUR)", factoryDebts: "Fabrieksschulden (EUR)", paidAccounts: "Betaalde Rekeningen", customersTab: "Klanten", factoryTab: "Fabriek", searchPlaceholder: "Zoeken...", sortLatest: "🕒 Nieuwste", sortHighest: "💰 Hoogste", sortLowest: "📉 Laagste", customerList: "Klantenlijst", factoryList: "Fabrieklijst", name: "Naam", amount: "Bedrag", lastEdit: "Bewerkt", notes: "Notities", status: "Status", actions: "Acties", addNewDebtTitle: "Toevoegen", accountType: "Type", customerRadio: "Klant", factoryRadio: "Fabriek", fullName: "Volledige Naam", pickFromDevice: "Contacten", pNamePlaceholder: "Naam", phoneLabel: "Telefoon", phonePlaceholder: "Ex: 123...", dateLabel: "Datum", openingAmount: "Beginsaldo", notesLabel: "Notities", notesPlaceholder: "Details...", downloadPdf: "PDF", saveDebt: "Opslaan", editAccountTitle: "Bewerken", currentTotalDebt: "Totaal", adjustmentDate: "Datum", adjustmentLabel: "Aanpassen (+/-)", paymentBtn: "Betaling", invoiceBtn: "Factuur", currentNotesPlaceholder: "Notities...", transactionHistory: "Historie", receiptBtn: "Bon", saveUpdate: "Update", quickWaTitle: "WhatsApp", phoneWithCode: "Nummer", waHint: "Direct chat.", startChat: "Start", loginTitle: "Login", usernameLabel: "Gebruiker", usernamePlaceholder: "Naam", loginHint: "Data opslag.", loginBtn: "Login", orWithGoogle: "Google", paid: "Betaald", hasDebt: "Heeft schuld", weHaveDebt: "Wij schulden", currency: "EUR", confirmDelete: "Verwijderen?", loginError: "Naam vereist", fillError: "Velden invullen", saveSuccess: "✅ Opgeslagen", updateSuccess: "✏️ Bijgewerkt", changeTheme: "Thema Wijzigen", changeLanguage: "Taal Wijzigen", noHistory: "Geen transacties", invoiceAdded: "Factuur Toegevoegd", paymentAdded: "Betaling Toegevoegd", openingBalance: "Beginsaldo", increaseVal: "Verhogen (Factuur)", decreaseVal: "Verlagen (Betaling)", emptyTitle: "Geen Data", emptySubtitle: "Voeg klant toe", contactImported: "✅ Contact geïmporteerd", contactError: "❌ Fout", contactUnsupported: "⚠️ Niet ondersteund", generatingPDF: "⏳ PDF genereren...", pdfSuccess: "✅ PDF gedownload", pdfError: "❌ Fout", pdfSubtitle: "Financieel Beheer", pdfStatement: "Afschrift", pdfToCustomer: "AAN KLANT:", pdfAccountType: "Accounttype:", pdfAccountStatus: "Accountstatus:", pdfActive: "Actief", pdfTotalBalance: "Totaalsaldo", pdfHistoryTitle: "Transactiegeschiedenis", pdfNotesTitle: "Notities & Voorwaarden:", pdfNotesText: "Controleer binnen 48u." },
+            es: { siteTitle: "Gestor de Deudas", logoText: "Tus Deudas", quickWa: "WhatsApp Rápido", login: "Entrar", logout: "Salir", heroTitle: "Gestiona deudas <span>fácilmente</span>", heroSubtitle: "Exporta PDF, sigue cuentas.", addDebt: "Añadir Deuda", totalCustomers: "Total Clientes", customerReceivables: "Cobros (EUR)", factoryDebts: "Deudas Fábrica (EUR)", paidAccounts: "Cuentas Pagadas", customersTab: "Clientes", factoryTab: "Fábrica", searchPlaceholder: "Buscar...", sortLatest: "🕒 Reciente", sortHighest: "💰 Saldo Alto", sortLowest: "📉 Saldo Bajo", customerList: "Lista Clientes", factoryList: "Lista Fábrica", name: "Nombre", amount: "Monto", lastEdit: "Editado", notes: "Notas", status: "Estado", actions: "Acciones", addNewDebtTitle: "Añadir", accountType: "Tipo", customerRadio: "Cliente", factoryRadio: "Fábrica", fullName: "Nombre Completo", pickFromDevice: "Contactos", pNamePlaceholder: "Nombre", phoneLabel: "Teléfono", phonePlaceholder: "Ex: 123...", dateLabel: "Fecha", openingAmount: "Saldo Inicial", notesLabel: "Notas", notesPlaceholder: "Detalles...", downloadPdf: "PDF", saveDebt: "Guardar", editAccountTitle: "Editar", currentTotalDebt: "Total", adjustmentDate: "Fecha", adjustmentLabel: "Ajustar (+/-)", paymentBtn: "Pago", invoiceBtn: "Factura", currentNotesPlaceholder: "Notas...", transactionHistory: "Historial", receiptBtn: "Recibo", saveUpdate: "Actualizar", quickWaTitle: "WhatsApp", phoneWithCode: "Número", waHint: "Chat directo.", startChat: "Empezar", loginTitle: "Login", usernameLabel: "Usuario", usernamePlaceholder: "Nombre", loginHint: "Datos guardados.", loginBtn: "Entrar", orWithGoogle: "Google", paid: "Pagado", hasDebt: "Tiene deuda", weHaveDebt: "Debemos", currency: "EUR", confirmDelete: "Eliminar?", loginError: "Usuario requerido", fillError: "Llene los campos", saveSuccess: "✅ Guardado", updateSuccess: "✏️ Actualizado", changeTheme: "Cambiar Tema", changeLanguage: "Cambiar Idioma", noHistory: "Sin transacciones", invoiceAdded: "Factura Añadida", paymentAdded: "Pago Añadido", openingBalance: "Saldo Inicial", increaseVal: "Aumentar (Factura)", decreaseVal: "Disminuir (Pago)", emptyTitle: "Sin Datos", emptySubtitle: "Añadir cliente", contactImported: "✅ Contacto importado", contactError: "❌ Error", contactUnsupported: "⚠️ No soportado", generatingPDF: "⏳ Generando PDF...", pdfSuccess: "✅ PDF descargado", pdfError: "❌ Error", pdfSubtitle: "Gestión Financiera", pdfStatement: "Estado de Cuenta", pdfToCustomer: "AL CLIENTE:", pdfAccountType: "Tipo de Cuenta:", pdfAccountStatus: "Estado:", pdfActive: "Activo", pdfTotalBalance: "Saldo Total", pdfHistoryTitle: "Historial", pdfNotesTitle: "Notas:", pdfNotesText: "Revise en 48 horas." },
+            it: { siteTitle: "Gestore Debiti", logoText: "I Tuoi Debiti", quickWa: "WhatsApp Rapido", login: "Accedi", logout: "Esci", heroTitle: "Gestisci i debiti <span>facilmente</span>", heroSubtitle: "Esporta PDF, traccia conti.", addDebt: "Aggiungi Debito", totalCustomers: "Totale Clienti", customerReceivables: "Crediti (EUR)", factoryDebts: "Debiti Fabbrica (EUR)", paidAccounts: "Conti Pagati", customersTab: "Clienti", factoryTab: "Fabbrica", searchPlaceholder: "Cerca...", sortLatest: "🕒 Recente", sortHighest: "💰 Saldo Alto", sortLowest: "📉 Saldo Basso", customerList: "Lista Clienti", factoryList: "Lista Fabbrica", name: "Nome", amount: "Importo", lastEdit: "Modificato", notes: "Note", status: "Stato", actions: "Azioni", addNewDebtTitle: "Aggiungi", accountType: "Tipo", customerRadio: "Cliente", factoryRadio: "Fabbrica", fullName: "Nome Completo", pickFromDevice: "Contatti", pNamePlaceholder: "Nome", phoneLabel: "Telefono", phonePlaceholder: "Ex: 123...", dateLabel: "Data", openingAmount: "Saldo Iniziale", notesLabel: "Note", notesPlaceholder: "Dettagli...", downloadPdf: "PDF", saveDebt: "Salva", editAccountTitle: "Modifica", currentTotalDebt: "Totale", adjustmentDate: "Data", adjustmentLabel: "Regola (+/-)", paymentBtn: "Pagamento", invoiceBtn: "Fattura", currentNotesPlaceholder: "Note...", transactionHistory: "Cronologia", receiptBtn: "Ricevuta", saveUpdate: "Aggiorna", quickWaTitle: "WhatsApp", phoneWithCode: "Numero", waHint: "Chat diretta.", startChat: "Inizia", loginTitle: "Login", usernameLabel: "Utente", usernamePlaceholder: "Nome", loginHint: "Dati salvati.", loginBtn: "Accedi", orWithGoogle: "Google", paid: "Pagato", hasDebt: "Ha debito", weHaveDebt: "Dobbiamo", currency: "EUR", confirmDelete: "Elimina?", loginError: "Nome richiesto", fillError: "Riempire campi", saveSuccess: "✅ Salvato", updateSuccess: "✏️ Aggiornato", changeTheme: "Cambia Tema", changeLanguage: "Cambia Lingua", noHistory: "Nessuna transazione", invoiceAdded: "Fattura Aggiunta", paymentAdded: "Pagamento Aggiunto", openingBalance: "Saldo Iniziale", increaseVal: "Aumenta (Fattura)", decreaseVal: "Riduci (Pagamento)", emptyTitle: "Nessun Dato", emptySubtitle: "Aggiungi cliente", contactImported: "✅ Contatto importato", contactError: "❌ Errore", contactUnsupported: "⚠️ Non supportato", generatingPDF: "⏳ Creazione PDF...", pdfSuccess: "✅ PDF scaricato", pdfError: "❌ Errore", pdfSubtitle: "Gestione Finanziaria", pdfStatement: "Estratto Conto", pdfToCustomer: "AL CLIENTE:", pdfAccountType: "Tipo Conto:", pdfAccountStatus: "Stato Conto:", pdfActive: "Attivo", pdfTotalBalance: "Saldo Totale", pdfHistoryTitle: "Cronologia", pdfNotesTitle: "Note:", pdfNotesText: "Verificare entro 48h." },
+            pt: { siteTitle: "Gestor de Dívidas", logoText: "Suas Dívidas", quickWa: "WhatsApp Rápido", login: "Entrar", logout: "Sair", heroTitle: "Gerencie dívidas <span>facilmente</span>", heroSubtitle: "Exportar PDF, rastrear contas.", addDebt: "Adicionar Dívida", totalCustomers: "Total Clientes", customerReceivables: "Recebíveis (EUR)", factoryDebts: "Dívidas Fábrica (EUR)", paidAccounts: "Contas Pagas", customersTab: "Clientes", factoryTab: "Fábrica", searchPlaceholder: "Buscar...", sortLatest: "🕒 Recente", sortHighest: "💰 Saldo Alto", sortLowest: "📉 Saldo Baixo", customerList: "Lista Clientes", factoryList: "Lista Fábrica", name: "Nome", amount: "Valor", lastEdit: "Editado", notes: "Notas", status: "Estado", actions: "Ações", addNewDebtTitle: "Adicionar", accountType: "Tipo", customerRadio: "Cliente", factoryRadio: "Fábrica", fullName: "Nome Completo", pickFromDevice: "Contatos", pNamePlaceholder: "Nome", phoneLabel: "Telefone", phonePlaceholder: "Ex: 123...", dateLabel: "Data", openingAmount: "Saldo Inicial", notesLabel: "Notas", notesPlaceholder: "Detalhes...", downloadPdf: "PDF", saveDebt: "Salvar", editAccountTitle: "Editar", currentTotalDebt: "Total", adjustmentDate: "Data", adjustmentLabel: "Ajustar (+/-)", paymentBtn: "Pagamento", invoiceBtn: "Fatura", currentNotesPlaceholder: "Notas...", transactionHistory: "Histórico", receiptBtn: "Recibo", saveUpdate: "Atualizar", quickWaTitle: "WhatsApp", phoneWithCode: "Número", waHint: "Chat direto.", startChat: "Começar", loginTitle: "Login", usernameLabel: "Usuário", usernamePlaceholder: "Nome", loginHint: "Dados salvos.", loginBtn: "Entrar", orWithGoogle: "Google", paid: "Pago", hasDebt: "Tem dívida", weHaveDebt: "Devemos", currency: "EUR", confirmDelete: "Excluir?", loginError: "Usuário obrigatório", fillError: "Preencha os campos", saveSuccess: "✅ Salvo", updateSuccess: "✏️ Atualizado", changeTheme: "Mudar Tema", changeLanguage: "Mudar Idioma", noHistory: "Sem transações", invoiceAdded: "Fatura Adicionada", paymentAdded: "Pagamento Adicionado", openingBalance: "Saldo Inicial", increaseVal: "Aumentar (Fatura)", decreaseVal: "Diminuir (Pagamento)", emptyTitle: "Sem Dados", emptySubtitle: "Adicionar cliente", contactImported: "✅ Contato importado", contactError: "❌ Erro", contactUnsupported: "⚠️ Não suportado", generatingPDF: "⏳ Gerando PDF...", pdfSuccess: "✅ PDF baixado", pdfError: "❌ Erro", pdfSubtitle: "Gestão Financeira", pdfStatement: "Extrato", pdfToCustomer: "AO CLIENTE:", pdfAccountType: "Tipo Conta:", pdfAccountStatus: "Status:", pdfActive: "Ativo", pdfTotalBalance: "Saldo Total", pdfHistoryTitle: "Histórico", pdfNotesTitle: "Notas:", pdfNotesText: "Revise em 48h." },
+            br: { siteTitle: "Gestor de Dívidas", logoText: "Suas Dívidas", quickWa: "WhatsApp Rápido", login: "Entrar", logout: "Sair", heroTitle: "Gerencie dívidas <span>com facilidade</span>", heroSubtitle: "PDFs, controle total.", addDebt: "Adicionar Dívida", totalCustomers: "Total Clientes", customerReceivables: "Recebíveis (BRL)", factoryDebts: "Dívidas Fábrica (BRL)", paidAccounts: "Contas Pagas", customersTab: "Clientes", factoryTab: "Fábrica", searchPlaceholder: "Buscar...", sortLatest: "🕒 Recente", sortHighest: "💰 Maior Saldo", sortLowest: "📉 Menor Saldo", customerList: "Lista de Clientes", factoryList: "Lista da Fábrica", name: "Nome", amount: "Valor", lastEdit: "Alterado", notes: "Notas", status: "Status", actions: "Ações", addNewDebtTitle: "Novo Registro", accountType: "Tipo", customerRadio: "Cliente", factoryRadio: "Fábrica", fullName: "Nome", pickFromDevice: "Contatos", pNamePlaceholder: "Nome", phoneLabel: "Telefone", phonePlaceholder: "Ex: 11...", dateLabel: "Data", openingAmount: "Saldo Inicial", notesLabel: "Notas", notesPlaceholder: "Detalhes...", downloadPdf: "PDF", saveDebt: "Salvar", editAccountTitle: "Editar", currentTotalDebt: "Total", adjustmentDate: "Data", adjustmentLabel: "Ajustar (+/-)", paymentBtn: "Pagamento", invoiceBtn: "Fatura", currentNotesPlaceholder: "Notas...", transactionHistory: "Histórico", receiptBtn: "Recibo", saveUpdate: "Salvar", quickWaTitle: "WhatsApp", phoneWithCode: "Número", waHint: "Chat direto.", startChat: "Iniciar", loginTitle: "Login", usernameLabel: "Usuário", usernamePlaceholder: "Nome", loginHint: "Dados salvos.", loginBtn: "Entrar", orWithGoogle: "Google", paid: "Pago", hasDebt: "Deve", weHaveDebt: "Devemos", currency: "R$", confirmDelete: "Excluir?", loginError: "Usuário obrigatório", fillError: "Preencha os campos", saveSuccess: "✅ Salvo", updateSuccess: "✏️ Atualizado", changeTheme: "Mudar Tema", changeLanguage: "Mudar Idioma", noHistory: "Sem transações", invoiceAdded: "Fatura Adicionada", paymentAdded: "Pagamento Adicionado", openingBalance: "Saldo Inicial", increaseVal: "Aumentar (Fatura)", decreaseVal: "Diminuir (Pagamento)", emptyTitle: "Sem Dados", emptySubtitle: "Adicionar cliente", contactImported: "✅ Contato importado", contactError: "❌ Erro", contactUnsupported: "⚠️ Não suportado", generatingPDF: "⏳ Gerando PDF...", pdfSuccess: "✅ PDF baixado", pdfError: "❌ Erro", pdfSubtitle: "Gestão Financeira", pdfStatement: "Extrato", pdfToCustomer: "AO CLIENTE:", pdfAccountType: "Tipo Conta:", pdfAccountStatus: "Status:", pdfActive: "Ativo", pdfTotalBalance: "Saldo Total", pdfHistoryTitle: "Histórico", pdfNotesTitle: "Notas:", pdfNotesText: "Revise em 48h." },
+            tr: { siteTitle: "Borç Takip", logoText: "Borçların", quickWa: "Hızlı WhatsApp", login: "Giriş", logout: "Çıkış", heroTitle: "Borçları <span>kolayca yönetin</span>", heroSubtitle: "PDF dışa aktar, hesap takip et.", addDebt: "Borç Ekle", totalCustomers: "Toplam Müşteri", customerReceivables: "Alacaklar (TRY)", factoryDebts: "Fabrika Borçları (TRY)", paidAccounts: "Ödenenler", customersTab: "Müşteriler", factoryTab: "Fabrika", searchPlaceholder: "Ara...", sortLatest: "🕒 En Yeni", sortHighest: "💰 En Yüksek", sortLowest: "📉 En Düşük", customerList: "Müşteri Listesi", factoryList: "Fabrika Listesi", name: "İsim", amount: "Miktar", lastEdit: "Değiştirildi", notes: "Notlar", status: "Durum", actions: "İşlemler", addNewDebtTitle: "Borç Ekle", accountType: "Tip", customerRadio: "Müşteri", factoryRadio: "Fabrika", fullName: "Ad Soyad", pickFromDevice: "Rehber", pNamePlaceholder: "İsim", phoneLabel: "Telefon", phonePlaceholder: "Örn: 5...", dateLabel: "Tarih", openingAmount: "Açılış Bakiyesi", notesLabel: "Notlar", notesPlaceholder: "Detaylar...", downloadPdf: "PDF", saveDebt: "Kaydet", editAccountTitle: "Düzenle", currentTotalDebt: "Toplam", adjustmentDate: "Tarih", adjustmentLabel: "Miktar (+/-)", paymentBtn: "Ödeme", invoiceBtn: "Fatura", currentNotesPlaceholder: "Notlar...", transactionHistory: "Geçmiş", receiptBtn: "Makbuz", saveUpdate: "Güncelle", quickWaTitle: "WhatsApp", phoneWithCode: "Numara", waHint: "Direkt sohbet.", startChat: "Başlat", loginTitle: "Giriş", usernameLabel: "Kullanıcı", usernamePlaceholder: "İsim", loginHint: "Veriler kaydedilir.", loginBtn: "Giriş Yap", orWithGoogle: "Google", paid: "Ödendi", hasDebt: "Borcu var", weHaveDebt: "Borcumuz var", currency: "TL", confirmDelete: "Silmek istediğine emin misin?", loginError: "Kullanıcı adı gerekli", fillError: "Alanları doldurun", saveSuccess: "✅ Kaydedildi", updateSuccess: "✏️ Güncellendi", changeTheme: "Tema Değiştir", changeLanguage: "Dil Değiştir", noHistory: "İşlem yok", invoiceAdded: "Fatura Eklendi", paymentAdded: "Ödeme Eklendi", openingBalance: "Açılış Bakiyesi", increaseVal: "Artır (Fatura)", decreaseVal: "Azalt (Ödeme)", emptyTitle: "Veri Yok", emptySubtitle: "Müşteri ekleyin", contactImported: "✅ Kişi eklendi", contactError: "❌ Hata", contactUnsupported: "⚠️ Desteklenmiyor", generatingPDF: "⏳ PDF Oluşturuluyor...", pdfSuccess: "✅ PDF indirildi", pdfError: "❌ Hata", pdfSubtitle: "Finansal Yönetim", pdfStatement: "Hesap Özeti", pdfToCustomer: "MÜŞTERİYE:", pdfAccountType: "Hesap Türü:", pdfAccountStatus: "Durum:", pdfActive: "Aktif", pdfTotalBalance: "Toplam Bakiye", pdfHistoryTitle: "İşlem Geçmişi", pdfNotesTitle: "Notlar:", pdfNotesText: "48 saat içinde inceleyin." }
+        };
+
+        // ======================================================
+        // Global State & Initialization
+        // ======================================================
+        let debts = [];
+        let currentUser = localStorage.getItem('debtManager_user') || null;
+        let currentLang = localStorage.getItem('debtManager_lang') || 'ar';
+        let currentEditId = null;
+        let currentSort = 'date-desc';
+        let tempEditAmount = 0;
+        let totalAdjustmentAmount = 0;
+        let searchTimeout;
+        let recognition;
+        let _firebaseReady = false;
+
+        // Cache DOM lookups for speed
+        const dom = {
+            customerBody: document.getElementById('dataRows'),
+            factoryBody: document.getElementById('factoryTableBody'),
+            statUsers: document.getElementById('stat-total-users'),
+            statDebt: document.getElementById('stat-total-debt'),
+            statFactory: document.getElementById('stat-total-factory'),
+            statPaid: document.getElementById('stat-total-paid'),
+            searchInput: document.getElementById('searchInput')
+        };
+
+        function openModal(id) { 
+            const el = document.getElementById(id);
+            if (el) el.classList.add('active'); 
+        }
+        function closeModal(id) { 
+            const el = document.getElementById(id);
+            if (el) el.classList.remove('active'); 
+        }
+
+
+        function toggleVoice(targetId, btn) {
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                alert("عذراً، متصفحك لا يدعم خاصية الإملاء الصوتي.");
+                return;
+            }
+
+            if (btn.classList.contains('recording')) {
+                recognition.stop();
+                return;
+            }
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            
+            // Map our lang codes to SpeechRecognition lang codes
+            const langMap = { ar: 'ar-SA', en: 'en-US', fr: 'fr-FR', de: 'de-DE', nl: 'nl-BE', es: 'es-ES', it: 'it-IT', pt: 'pt-PT', br: 'pt-BR', tr: 'tr-TR' };
+            recognition.lang = langMap[currentLang] || 'en-US';
+            
+            recognition.interimResults = false;
+
+            recognition.onstart = () => {
+                btn.classList.add('recording');
+            };
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                const textarea = document.getElementById(targetId);
+                textarea.value += (textarea.value ? ' ' : '') + transcript;
+            };
+
+            recognition.onend = () => {
+                btn.classList.remove('recording');
+            };
+
+            recognition.onerror = (event) => {
+                console.error(event.error);
+                btn.classList.remove('recording');
+            };
+
+            recognition.start();
+        }
+
+        // ======================================================
+        // Firebase & Core Logic
+        // ======================================================
+        function getFS() { return window._firebase || null; }
+        function userKey(email) { return email ? email.replace(/\./g, ',') : 'guest'; }
+        
+        function debtsRef() {
+            const fb = getFS();
+            return fb ? fb.ref(fb.db, `users/${userKey(currentUser)}/debts`) : null;
+        }
+
+        function debtRef(id) {
+            const fb = getFS();
+            return fb ? fb.ref(fb.db, `users/${userKey(currentUser)}/debts/${id}`) : null;
+        }
+
+        function pushDebtToRTDB(debt) {
+            const fb = getFS();
+            if (!fb || !currentUser) return null;
+            try {
+                const listRef = debtsRef();
+                const newRef = fb.push(listRef);
+                fb.set(newRef, debt).catch(e => console.error('RTDB push error:', e));
+                return newRef.key;
+            } catch (e) {
+                console.error('RTDB push sync error:', e);
+                return null;
+            }
+        }
+
+        function updateDebtInRTDB(debt) {
+            const fb = getFS();
+            if (!fb || !currentUser || !debt.id) return;
+            fb.set(debtRef(debt.id), debt).catch(e => console.error('RTDB update error:', e));
+        }
+
+        function removeDebtFromRTDB(id) {
+            const fb = getFS();
+            if (!fb || !currentUser || !id) return;
+            fb.remove(debtRef(id)).catch(e => console.error('RTDB remove error:', e));
+        }
+
+        function subscribeRTDB() {
+            const fb = getFS();
+            if (!fb || !currentUser) return;
+            if (fb.unsubscribe) { fb.off(fb.unsubscribe); fb.unsubscribe = null; }
+            const path = debtsRef();
+            fb.unsubscribe = path;
+            let hasCheckedMigration = false;
+            fb.onValue(path, (snap) => {
+                if (snap.exists()) {
+                    const raw = snap.val();
+                    debts = Object.entries(raw).map(([key, val]) => ({ ...val, id: key }));
+                    hasCheckedMigration = true;
+                } else {
+                    debts = [];
+                    if (!hasCheckedMigration) {
+                        hasCheckedMigration = true;
+                        const legacy = JSON.parse(localStorage.getItem(`debts_${currentUser}`) || '[]');
+                        if (legacy.length > 0) {
+                            legacy.forEach(d => pushDebtToRTDB(d));
+                            return;
+                        }
+                    }
+                }
+                localStorage.setItem(`debts_${currentUser}`, JSON.stringify(debts));
+                renderTable();
+            });
+        }
+
+        function toggleSettingsDropdown() {
+            const drop = document.getElementById('settingsDropdown');
+            if (drop) drop.classList.toggle('show');
+        }
+
+        function setLanguage(lang) {
+            if (!langData[lang]) lang = 'ar';
+            currentLang = lang;
+            localStorage.setItem('debtManager_lang', lang);
+            const data = langData[lang];
+            const t = translations[lang];
+            document.documentElement.lang = lang;
+            document.documentElement.dir = data.dir;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) el.innerHTML = t[key];
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (t[key]) el.placeholder = t[key];
+            });
+            document.title = t.siteTitle;
+            document.querySelectorAll('.lang-option').forEach(el => el.classList.remove('active'));
+            const activeLangEl = document.getElementById(`lang-${lang}`);
+            if(activeLangEl) activeLangEl.classList.add('active');
+            if (currentUser) {
+                const authEl = document.getElementById('authMenuItem');
+                if (authEl) authEl.innerHTML = `<i class="fas fa-sign-out-alt"></i> <span>${t.logout} (${currentUser})</span>`;
+            }
+            if (document.getElementById('settingsDropdown')) document.getElementById('settingsDropdown').classList.remove('show');
+            renderTable();
+        }
+
+        function initApp() {
+            setLanguage(currentLang);
+            const authEl = document.getElementById('authMenuItem');
+            if (currentUser) {
+                const t = translations[currentLang];
+                if (authEl) {
+                    authEl.innerHTML = `<i class="fas fa-sign-out-alt"></i> <span>${t.logout} (${currentUser})</span>`;
+                    authEl.onclick = logoutUser;
+                }
+                const closeBtn = document.getElementById('loginCloseBtn');
+                if(closeBtn) closeBtn.style.display = 'block';
+                document.querySelector('.hero').style.display = 'block';
+                document.querySelector('.stats').style.display = 'grid';
+                document.querySelector('.tabs-container').style.display = 'flex';
+                switchTab('customer');
+                debts = JSON.parse(localStorage.getItem(`debts_${currentUser}`) || '[]');
+                renderTable();
+                if (getFS()) subscribeRTDB();
+                else window.addEventListener('firebase-ready', subscribeRTDB, { once: true });
+            } else {
+                const t = translations[currentLang];
+                if (authEl) {
+                    authEl.innerHTML = `<i class="fas fa-user-circle"></i> <span>${t.login}</span>`;
+                    authEl.onclick = () => openModal('loginModal');
+                }
+                const closeBtn = document.getElementById('loginCloseBtn');
+                if(closeBtn) closeBtn.style.display = 'none';
+                const fs = getFS();
+                if (fs && fs.unsubscribe) { fs.off(fs.unsubscribe); fs.unsubscribe = null; }
+                document.querySelector('.hero').style.display = 'none';
+                document.querySelector('.stats').style.display = 'none';
+                document.querySelector('.tabs-container').style.display = 'none';
+                document.getElementById('customerSection').style.display = 'none';
+                document.getElementById('factorySection').style.display = 'none';
+                debts = [];
+                renderTable();
+                openModal('loginModal');
+            }
+        }
+
+        function loginUser() {
+            const username = document.getElementById('usernameInput').value.trim();
+            if (!username) { alert(translations[currentLang].loginError); return; }
+            currentUser = username;
+            localStorage.setItem('debtManager_user', currentUser);
+            closeModal('loginModal');
+            initApp();
+        }
+
+        function logoutUser() {
+            currentUser = null;
+            localStorage.removeItem('debtManager_user');
+            document.getElementById('usernameInput').value = '';
+            initApp();
+        }
+
+        function handleCredentialResponse(response) {
+            try {
+                const base64Url = response.credential.split('.')[1];
+                const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+                const payload = JSON.parse(jsonPayload);
+                currentUser = payload.email;
+                localStorage.setItem('debtManager_user', currentUser);
+                closeModal('loginModal');
+                initApp();
+            } catch (error) { console.error("Google login error:", error); }
+        }
+
+        function switchTab(type) {
+            const cSec = document.getElementById('customerSection');
+            const fSec = document.getElementById('factorySection');
+            const cTab = document.getElementById('customerTab');
+            const fTab = document.getElementById('factoryTab');
+            if (cSec) cSec.style.display = type === 'customer' ? 'block' : 'none';
+            if (fSec) fSec.style.display = type === 'factory' ? 'block' : 'none';
+            if (cTab) cTab.classList.toggle('active', type === 'customer');
+            if (fTab) fTab.classList.toggle('active', type === 'factory');
+            if (typeof filterTable === 'function') filterTable();
+        }
+
+        function openAdd() {
+            const dateEl = document.getElementById('addDate');
+            if (dateEl) dateEl.value = new Date().toISOString().split('T')[0];
+            openModal('addModal');
+        }
+
+        window.addEventListener('click', (e) => {
+            if (!e.target.closest('.settings-selector')) {
+                const drop = document.getElementById('settingsDropdown');
+                if(drop) drop.classList.remove('show');
+            }
+        });
+
+        function renderTable() {
+            const t = translations[currentLang];
+            // Apply sorting before render
+            debts.sort((a, b) => {
+                if (currentSort === 'amount-desc') return b.amount - a.amount;
+                if (currentSort === 'amount-asc') return a.amount - b.amount;
+                // Default: date-desc
+                return (b.date || '').localeCompare(a.date || '');
+            });
+
+            let customerHtml = '';
+            let factoryHtml = '';
+
+            let totalCustomerDebt = 0;
+            let totalFactoryDebt = 0;
+            let countUsers = 0;
+            let paidCount = 0;
+
+            // One-pass data processing
+            const len = debts.length;
+            for (let i = 0; i < len; i++) {
+                const debt = debts[i];
+                const isCustomer = debt.type === 'customer';
+                const amount = parseFloat(debt.amount);
+
+                if (isCustomer) {
+                    countUsers++;
+                    if (amount > 0) totalCustomerDebt += amount;
+                    else paidCount++;
+                } else {
+                    if (amount > 0) totalFactoryDebt += amount;
+                    else paidCount++;
+                }
+
+                const badgeClass = amount === 0 ? 'paid' : 'unpaid';
+                let badgeText = '';
+                if (amount === 0) badgeText = t.paid;
+                else badgeText = isCustomer ? t.hasDebt : t.weHaveDebt;
+
+                const initial = debt.name.charAt(0);
+                const dateStr = debt.date ? debt.date.split('-').reverse().join('/') : '---';
+
+                const rowHtml = `
+                <tr>
+                    <td data-label="${t.name}">
+                        <div class="user-cell">
+                            <div class="avatar">${initial}</div>
+                            <div style="font-weight: 700;">${debt.name}</div>
+                        </div>
+                    </td>
+                    <td data-label="${t.amount}" class="amount">${amount.toLocaleString()} <span style="font-size:12px;color:var(--text-secondary)">${t.currency}</span></td>
+                    <td data-label="${t.lastEdit}" style="font-family: Outfit; font-size: 14px; color: var(--text-secondary);">${dateStr}</td>
+                    <td data-label="${t.notes}" style="font-size: 14px; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${debt.notes || '---'}</td>
+                    <td data-label="${t.status}"><span class="badge ${badgeClass}">${badgeText}</span></td>
+                    <td data-label="${t.actions}">
+                        <div class="actions">
+                            <button class="action-btn whatsapp" onclick="openWhatsApp('${debt.phone}')"><i class="fab fa-whatsapp"></i></button>
+                            <button class="action-btn edit" onclick="openEdit('${debt.id}')"><i class="fas fa-pen"></i></button>
+                            <button class="action-btn delete" onclick="deleteDebt('${debt.id}')"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </td>
+                </tr>`;
+
+                if (isCustomer) customerHtml += rowHtml;
+                else factoryHtml += rowHtml;
+            }
+
+            // Single DOM write for main tables
+            dom.customerBody.innerHTML = customerHtml;
+            dom.factoryBody.innerHTML = factoryHtml;
+
+            // Statistics
+            dom.statUsers.textContent = countUsers;
+            dom.statDebt.textContent = totalCustomerDebt.toLocaleString();
+            dom.statFactory.textContent = totalFactoryDebt.toLocaleString();
+            dom.statPaid.textContent = paidCount;
+
+            checkEmpty('dataRows');
+            checkEmpty('factoryTableBody');
+        }
+
+        function saveNewDebt() {
+            const type = document.querySelector('input[name="accountType"]:checked').value;
+            const name = document.getElementById('pName').value.trim();
+            const phone = document.getElementById('addPhone').value.trim();
+            const amount = parseFloat(document.getElementById('pAmount').value) || 0;
+            const date = document.getElementById('addDate').value;
+            const notes = document.getElementById('addNotes').value.trim();
+
+            const t = translations[currentLang];
+            if (!name || amount === 0) { alert(t.fillError || 'Please enter name and amount'); return; }
+
+            const newDebt = {
+                type,
+                name,
+                phone,
+                amount,
+                date,
+                notes,
+                history: [{ date, adjustment: amount, notes: notes || '', isInitial: true }]
+            };
+
+            // Push to RTDB
+            const newId = pushDebtToRTDB(newDebt);
+            
+            // Optimistic UI update
+            if (newId) {
+                newDebt.id = newId;
+                debts.push(newDebt);
+            }
+
+            closeModal('addModal');
+            document.getElementById('pName').value = '';
+            document.getElementById('addPhone').value = '';
+            document.getElementById('pAmount').value = '';
+            document.getElementById('addNotes').value = '';
+            renderTable();
+            showToast(t.saveSuccess || '✅ Saved successfully', 'success');
+        }
+
+
+
+        function applySort(val) {
+            currentSort = val;
+            renderTable();
+        }
+
+        function openEdit(id) {
+            const debt = debts.find(d => d.id === id);
+            if (!debt) return;
+
+            currentEditId = id;
+            tempEditAmount = parseFloat(debt.amount);
+            totalAdjustmentAmount = 0;
+
+            document.getElementById('editUserName').innerText = debt.name;
+            document.getElementById('editPhone').value = debt.phone || '';
+            document.getElementById('editCurrentAmount').value = tempEditAmount;
+            document.getElementById('editAdjustment').value = '';
+            document.getElementById('editDate').value = new Date().toISOString().split('T')[0];
+            document.getElementById('editNotes').value = '';
+
+            const t = translations[currentLang];
+            // Render History
+            const historyContainer = document.getElementById('editHistoryList');
+            historyContainer.innerHTML = '';
+
+            if (!debt.history || debt.history.length === 0) {
+                historyContainer.innerHTML = `<div style="text-align:center; color: var(--text-secondary); padding: 5px; font-size:13px;">${t.noHistory}</div>`;
+            } else {
+                [...debt.history].reverse().forEach(h => {
+                    const isIncrease = h.adjustment > 0;
+                    let valClass, actionText;
+
+                    if (h.isInitial) {
+                        valClass = 'neutral';
+                        actionText = t.openingBalance;
+                    } else if (isIncrease) {
+                        valClass = 'increase';
+                        actionText = t.increaseVal;
+                    } else {
+                        valClass = 'decrease';
+                        actionText = t.decreaseVal;
+                    }
+
+                    let displayNotes = h.notes;
+                    if (!displayNotes || displayNotes === 'تسجيل الحساب أول مرة' || displayNotes === 'رصيد افتتاحي') {
+                        displayNotes = h.isInitial ? t.openingBalance : '---';
+                    }
+
+                    historyContainer.innerHTML += `
+                    <div class="history-item">
+                        <div class="history-top">
+                            <div class="history-date"><i class="far fa-calendar-alt"></i> ${h.date ? h.date.split('-').reverse().join('/') : '---'}</div>
+                            <div class="history-val ${valClass}">${actionText}: ${Math.abs(h.adjustment).toLocaleString()} ${t.currency}</div>
+                        </div>
+                        <div class="history-note">
+                            ${displayNotes}
+                        </div>
+                    </div>
+                `;
+                });
+            }
+
+            openModal('editModal');
+        }
+
+        function adjustAmountInput(action) {
+            let adjValue = parseFloat(document.getElementById('editAdjustment').value);
+            if (isNaN(adjValue) || adjValue <= 0) return;
+
+            let currentVal = parseFloat(document.getElementById('editCurrentAmount').value) || 0;
+
+            if (action === 'add') {
+                currentVal += adjValue;
+                totalAdjustmentAmount += adjValue;
+            } else if (action === 'subtract') {
+                currentVal -= adjValue;
+                totalAdjustmentAmount -= adjValue;
+                if (currentVal < 0) currentVal = 0;
+            }
+
+            document.getElementById('editCurrentAmount').value = currentVal;
+            document.getElementById('editAdjustment').value = '';
+        }
+
+        function saveEdit() {
+            const debtIndex = debts.findIndex(d => d.id === currentEditId);
+            if (debtIndex === -1) return;
+
+            const currentDebt = debts[debtIndex];
+            const editDate = document.getElementById('editDate').value;
+            const editNotes = document.getElementById('editNotes').value;
+            const finalAmount = parseFloat(document.getElementById('editCurrentAmount').value) || 0;
+            
+            // Calculate actual total difference
+            const diff = finalAmount - currentDebt.amount;
+
+            if (diff !== 0 || editNotes.trim() !== '') {
+                const manualDiff = diff - totalAdjustmentAmount;
+
+                // 1. If there's a manual override, it "resets" the starting point
+                if (manualDiff !== 0) {
+                    const initialItem = currentDebt.history.find(h => h.isInitial);
+                    if (initialItem) {
+                        // Flatten history into a single new initial balance line
+                        currentDebt.history = [initialItem];
+                        initialItem.adjustment = finalAmount - totalAdjustmentAmount;
+                        if (editNotes.trim()) initialItem.notes = editNotes;
+                    }
+                }
+
+                // 2. If buttons (+/-) were used, add a regular transaction record
+                if (totalAdjustmentAmount !== 0) {
+                    currentDebt.history.push({
+                        date: editDate,
+                        adjustment: totalAdjustmentAmount,
+                        notes: editNotes || (totalAdjustmentAmount > 0 ? translations[currentLang].invoiceAdded : translations[currentLang].paymentAdded),
+                        isInitial: false
+                    });
+                }
+            }
+
+            currentDebt.amount = finalAmount;
+            currentDebt.phone = document.getElementById('editPhone').value;
+            currentDebt.date = editDate;
+            currentDebt.notes = editNotes || currentDebt.notes;
+
+            // Save to RTDB (individual record). onValue fires instantly so we don't manually saveLocalData here
+            updateDebtInRTDB(currentDebt);
+
+            closeModal('editModal');
+            const t = translations[currentLang];
+            showToast(t.updateSuccess || '✏️ Updated successfully', 'info');
+        }
+
+        function formatWhatsAppNumber(phone) {
+            if (!phone) return null;
+            let cleanPhone = phone.replace(/\D/g, ''); // Remove all non-digits
+            if (cleanPhone.startsWith('0') && cleanPhone.length === 11) {
+                cleanPhone = '20' + cleanPhone.substring(1);
+            } else if (cleanPhone.startsWith('00')) {
+                cleanPhone = cleanPhone.substring(2);
+            }
+            return cleanPhone;
+        }
+
+        function openWhatsApp(phone) {
+            const cleanPhone = formatWhatsAppNumber(phone);
+            if (!cleanPhone) { alert(translations[currentLang].phoneWithCode || 'لم يتم إضافة رقم هاتف'); return; }
+            window.open(`https://wa.me/${cleanPhone}`, '_blank');
+        }
+
+        function startQuickChat() {
+            const phone = document.getElementById('quickPhone').value;
+            const cleanPhone = formatWhatsAppNumber(phone);
+            if (!cleanPhone) { alert(translations[currentLang].phoneWithCode || 'يرجى إدخال رقم الهاتف'); return; }
+
+            window.open(`https://wa.me/${cleanPhone}`, '_blank');
+            closeModal('quickWhatsAppModal');
+        }
+
+        function deleteDebt(id) {
+            const t = translations[currentLang];
+            if (confirm(t.confirmDelete || 'Are you sure?')) {
+                removeDebtFromRTDB(id);
+                
+                // Optimistic UI update
+                debts = debts.filter(d => d.id !== id);
+                renderTable();
+                
+                showToast(currentLang === 'ar' ? 'تم الحذف بنجاح 🗑️' : '🗑️ Deleted successfully', 'success');
+            }
+        }
+
+        async function selectContact() {
+            const t = translations[currentLang];
+            if (!('contacts' in navigator) || !('ContactsManager' in window)) {
+                showToast(t.contactUnsupported, 'error');
+                return;
+            }
+
+            const props = ['name', 'tel'];
+            const opts = { multiple: false };
+
+            try {
+                const contacts = await navigator.contacts.select(props, opts);
+                if (contacts.length > 0) {
+                    const contact = contacts[0];
+                    if (contact.name && contact.name.length > 0) {
+                        document.getElementById('pName').value = contact.name[0];
+                    }
+                    if (contact.tel && contact.tel.length > 0) {
+                        let phone = contact.tel[0].replace(/\D/g, '');
+                        document.getElementById('addPhone').value = phone;
+                    }
+                    showToast(t.contactImported, 'success');
+                }
+            } catch (ex) {
+                console.error("Contact Picker Error:", ex);
+                if (ex.name !== 'AbortError') {
+                    showToast(t.contactError, 'error');
+                }
+            }
+        }
+
+        function arabicNumberToWords(amount) {
+            if (amount === 0) return translations[currentLang].paid;
+            // A more robust number formatter for Arabic
+            try {
+                const formatter = new Intl.NumberFormat('ar-EG', { style: 'currency', currency: 'EGP' });
+                return formatter.format(amount).replace('ج.م.', '').trim() + ' ' + translations[currentLang].currency;
+            } catch (e) {
+                return amount.toLocaleString() + ' ' + translations[currentLang].currency;
+            }
+        }
+
+        function generatePDF(source) {
+            console.log('Generating PDF from source:', source);
+            if (typeof html2pdf === 'undefined') {
+                showToast('❌ مكتبة PDF لم يتم تحميلها بعد. يرجى الانتظار ثوانٍ أو تحديث الصفحة.', 'error');
+                console.error('html2pdf is not defined');
+                return;
+            }
+            
+            let targetDebt;
+
+            if (source === 'add') {
+                const type = document.querySelector('input[name="accountType"]:checked').value;
+                const name = document.getElementById('pName').value;
+                const amount = parseFloat(document.getElementById('pAmount').value) || 0;
+                const phone = document.getElementById('addPhone').value;
+                const date = document.getElementById('addDate').value;
+                const notes = document.getElementById('addNotes').value;
+
+                if (!name || !amount) {
+                    showToast('⚠️ يرجى ملء الاسم والمبلغ أولاً', 'error');
+                    return;
+                }
+
+                targetDebt = {
+                    name, type, amount, phone, date, notes,
+                    history: [{ date, adjustment: amount, notes: notes || 'رصيد افتتاحي', isInitial: true }]
+                };
+            } else {
+                const originalDebt = debts.find(d => d.id === currentEditId);
+                if (!originalDebt) return;
+
+                const editDate = document.getElementById('editDate').value;
+                const editNotes = document.getElementById('editNotes').value;
+                const diff = tempEditAmount - originalDebt.amount;
+
+                let previewHistory = [...(originalDebt.history || [])];
+                if (diff !== 0) {
+                    previewHistory.push({
+                        date: editDate,
+                        adjustment: diff,
+                        notes: editNotes || (diff > 0 ? 'فاتورة جديدة (قيد الحفظ)' : 'دفعة سداد (قيد الحفظ)'),
+                        isInitial: false
+                    });
+                }
+
+                targetDebt = {
+                    ...originalDebt,
+                    amount: tempEditAmount,
+                    notes: editNotes || originalDebt.notes,
+                    date: editDate,
+                    history: previewHistory
+                };
+            }
+
+            const isRTL = langData[currentLang].dir === 'rtl';
+            const receipt = document.getElementById('receipt');
+            receipt.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+            receipt.style.direction = isRTL ? 'rtl' : 'ltr';
+
+            // --- Populate New PDF Template ---
+            const t = translations[currentLang];
+            document.getElementById('r-subtitle').innerText = t.pdfSubtitle;
+            document.getElementById('r-statement').innerText = t.pdfStatement;
+            document.getElementById('r-to-customer').innerText = t.pdfToCustomer;
+            document.getElementById('r-account-type').innerText = t.pdfAccountType;
+            document.getElementById('r-account-status').innerText = t.pdfAccountStatus;
+            document.getElementById('r-active').innerText = t.pdfActive;
+            document.getElementById('r-total-balance').innerText = t.pdfTotalBalance;
+            document.getElementById('r-history-title').innerText = t.pdfHistoryTitle;
+            document.getElementById('r-notes-title').innerText = t.pdfNotesTitle;
+            document.getElementById('r-currency').innerText = t.currency;
+
+            const now = new Date();
+            document.getElementById('r-name').innerText = targetDebt.name;
+            document.getElementById('r-date').innerText = targetDebt.date ? targetDebt.date.split('-').reverse().join('/') : '---';
+            
+            const localeMap = { ar: 'ar-EG', en: 'en-US', fr: 'fr-FR', de: 'de-DE', nl: 'nl-BE', es: 'es-ES', it: 'it-IT', pt: 'pt-PT', br: 'pt-BR', tr: 'tr-TR' };
+            const currentLocale = localeMap[currentLang] || 'en-US';
+            document.getElementById('r-time').innerText = now.toLocaleTimeString(currentLocale, { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('r-phone').innerText = targetDebt.phone || '---';
+            document.getElementById('r-type').innerText = targetDebt.type === 'customer' ? t.customerRadio : t.factoryRadio;
+            document.getElementById('r-amount').innerText = parseFloat(targetDebt.amount).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            // Tafqeet fallback
+            document.getElementById('r-amount-text').innerText = parseFloat(targetDebt.amount).toLocaleString(currentLocale);
+
+            const refId = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('r-ref').innerText = refId;
+            document.getElementById('r-notes').innerText = targetDebt.notes || t.pdfNotesText;
+
+            // Update WhatsApp link in PDF
+            const waLink = document.getElementById('r-wa-link');
+            if (waLink) {
+                const cleanPhone = formatWhatsAppNumber(targetDebt.phone);
+                waLink.href = cleanPhone ? `https://wa.me/${cleanPhone}` : '#';
+                waLink.style.display = cleanPhone ? 'block' : 'none';
+            }
+
+            // QR Code Generation
+            const qrData = `DebtManager Report\nRef: ${refId}\nName: ${targetDebt.name}\nBalance: ${targetDebt.amount} ${t.currency}\nDate: ${now.toLocaleDateString()}`;
+            const qrEl = document.getElementById('r-qr');
+            if (qrEl) qrEl.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrData)}`;
+
+            // History Table
+            const historyBody = document.getElementById('r-history-body');
+            historyBody.innerHTML = '';
+
+            [...targetDebt.history].reverse().forEach((h, index) => {
+                const tr = document.createElement('tr');
+                tr.style.backgroundColor = index % 2 === 0 ? '#ffffff' : '#fcfcfc';
+
+                const typeText = h.isInitial ? t.openingBalance : (h.adjustment > 0 ? t.increaseVal : t.decreaseVal);
+                const typeColor = h.isInitial ? '#666' : (h.adjustment > 0 ? '#28a745' : '#dc3545');
+                const typeBg = h.isInitial ? '#f0f0f0' : (h.adjustment > 0 ? '#e8f5e9' : '#ffebee');
+
+                let displayNotes = h.notes;
+                if (!displayNotes || displayNotes === 'تسجيل الحساب أول مرة' || displayNotes === 'رصيد افتتاحي') {
+                    displayNotes = h.isInitial ? t.openingBalance : '---';
+                }
+
+                tr.innerHTML = `
+                <td class="align-start" style="padding: 15px; font-size: 13px; font-family: 'Outfit'; border-bottom: 1px solid #eee;">${h.date ? h.date.split('-').reverse().join('/') : '---'}</td>
+                <td class="align-start" style="padding: 15px; font-size: 12px; font-weight:bold; border-bottom: 1px solid #eee;">
+                    <span style="background:${typeBg}; color:${typeColor}; padding:5px 12px; border-radius:8px; display:inline-block; font-size:11px;">${typeText}</span>
+                </td>
+                <td class="align-start" style="padding: 15px; font-size: 13px; color:#444; border-bottom: 1px solid #eee; font-weight:500;">${displayNotes}</td>
+                <td style="padding: 15px; text-align: center; font-weight:800; font-family: 'Outfit'; font-size: 16px; color:#000; border-bottom: 1px solid #eee;">${Math.abs(h.adjustment).toLocaleString()}</td>
+            `;
+                historyBody.appendChild(tr);
+            });
+
+            // Render PDF with a small delay to ensure images and DOM are ready
+            setTimeout(() => {
+                const opt = {
+                    margin: [10, 10, 10, 10],
+                    filename: `DebtManager_${targetDebt.name.replace(/\s+/g, '_')}.pdf`,
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: {
+                        scale: 2,
+                        useCORS: true,
+                        letterRendering: true,
+                        allowTaint: true,
+                        logging: false
+                    },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+
+                html2pdf().set(opt).from(receipt).save().then(() => {
+                    console.log('PDF saved successfully');
+                    showToast(t.pdfSuccess, 'success');
+                }).catch(err => {
+                    console.error('html2pdf Error:', err);
+                    showToast(t.pdfError + ': ' + (err.message || 'Unknown error'), 'error');
+                });
+            }, 800);
+        }
+
+        // Debounced filter for smoothness
+
+        function filterTable() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const input = dom.searchInput.value.toLowerCase();
+                const customerRows = dom.customerBody.querySelectorAll("tr");
+                const factoryRows = dom.factoryBody.querySelectorAll("tr");
+
+                const filter = (rows) => {
+                    const len = rows.length;
+                    for (let i = 0; i < len; i++) {
+                        const row = rows[i];
+                        const name = row.querySelector('.user-cell div:last-child').textContent.toLowerCase();
+                        row.style.display = name.includes(input) ? "" : "none";
+                    }
+                };
+                filter(customerRows);
+                filter(factoryRows);
+            }, 150);
+        }
+
+        // ===== Toast Utility =====
+        function showToast(msg, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+
+            // Add icon based on type
+            let icon = '';
+            if (type === 'success') icon = '<i class="fas fa-check-circle"></i>';
+            else if (type === 'error') icon = '<i class="fas fa-exclamation-circle"></i>';
+            else if (type === 'info') icon = '<i class="fas fa-info-circle"></i>';
+
+            toast.innerHTML = `${icon} <span>${msg}</span>`;
+            document.body.appendChild(toast);
+
+            setTimeout(() => toast.classList.add('show'), 100);
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // ===== Confirm Delete =====
+        function confirmDelete(callback) {
+            if (confirm('هل أنت متأكد من الحذف؟')) {
+                callback();
+                showToast('تم الحذف بنجاح 🗑️');
+            }
+        }
+
+        // ===== Empty State Check =====
+        function checkEmpty(tableId) {
+            const container = document.getElementById(tableId);
+            if (!container) return;
+            
+            const tableContainer = container.closest('.table-container');
+            const emptyId = 'empty-' + tableId;
+            const prev = document.getElementById(emptyId);
+            if (prev) prev.remove();
+
+            const rows = container.querySelectorAll('tr');
+            if (rows.length === 0) {
+                const t = translations[currentLang];
+                const empty = document.createElement('div');
+                empty.id = emptyId;
+                empty.className = 'empty';
+                empty.innerHTML = `<i class="fas fa-inbox"></i><h3>📭 ${t.emptyTitle}</h3><p>${t.emptySubtitle}</p>`;
+                if (tableContainer) tableContainer.after(empty);
+                else container.after(empty);
+            }
+        }
+
+        initApp();
+    </script>
+
+
+
+</body></html>
