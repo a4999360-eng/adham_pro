@@ -59,6 +59,7 @@ body {
     flex-direction: column;
     width: 100vw;
     flex: 1;
+    overflow: hidden;
 }
 
 /* Sidebar Styling - hidden by default (mobile-first) */
@@ -217,12 +218,17 @@ aside nav {
 /* Main Dashboard Area - Mobile First */
 main {
     flex-grow: 1;
-    padding: 1.25rem 1rem 5.5rem 1rem; /* Bottom padding accounts for mobile nav bar */
+    /* Bottom padding = bottom nav height (~72px) + safe area + extra breathing room */
+    padding: 1.25rem 1rem calc(5.5rem + env(safe-area-inset-bottom, 0px)) 1rem;
     overflow-y: auto;
-    height: calc(100dvh - 60px); /* minus top header */
+    /* Full viewport minus top sticky header */
+    height: calc(100dvh - 60px);
+    max-height: calc(100dvh - 60px);
     background-color: var(--bg-main);
     /* Enable smooth scrolling on iOS */
     -webkit-overflow-scrolling: touch;
+    /* Ensure content doesn't get clipped under bottom nav */
+    box-sizing: border-box;
 }
 
 .view-section {
@@ -1577,6 +1583,7 @@ input:checked + .slider:before {
     #app-container {
         flex-direction: row;
         min-height: 100vh;
+        overflow: visible;
     }
 
     /* Show desktop sidebar on large screens */
@@ -1597,6 +1604,8 @@ input:checked + .slider:before {
     main {
         padding: 2.5rem 3.5rem;
         height: 100vh;
+        max-height: none;
+        overflow-y: auto;
     }
 
     .view-header {
