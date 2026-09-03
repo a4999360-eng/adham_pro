@@ -132,7 +132,7 @@ window.GymEvo.renderDashboard = function(repo, container, navigateToTab) {
 
                     <!-- Calorie balance breakdown -->
                     <div style="flex-grow: 1; margin-inline-start: 2rem;">
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
+                        <div class="macro-grid" style="text-align: center;">
                             <div>
                                 <div style="font-size: 0.8rem; color: var(--text-secondary);">المستهدف</div>
                                 <div style="font-size: 1.25rem; font-weight: 700; margin-top: 0.25rem;">${calorieTarget}</div>
@@ -154,6 +154,7 @@ window.GymEvo.renderDashboard = function(repo, container, navigateToTab) {
                     </div>
                 </div>
             </div>
+
 
             <!-- Macros Card -->
             <div class="card col-4">

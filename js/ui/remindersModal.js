@@ -28,115 +28,106 @@ window.GymEvo.renderRemindersModal = function(repo, reminderManager) {
     }
 
     modalEl.innerHTML = `
-        <div class="modal-content modal-content-lg" style="max-height: 90vh; overflow-y: auto;">
+        <div class="modal-content modal-content-lg" style="max-height: 92dvh; overflow-y: auto; -webkit-overflow-scrolling: touch;">
             <div class="modal-header">
-                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div style="display: flex; align-items: center; gap: 0.6rem; min-width: 0; flex: 1;">
                     <div class="reminder-icon-box">🔔</div>
-                    <div>
-                        <h2>التنبيهات والتذكيرات الذكية</h2>
-                        <p class="modal-subtitle">إشعارات مخصصة، إضافة أسباب ومواعيد تذكير خاصة، واختيار نغمة رنين من هاتفك.</p>
+                    <div style="min-width: 0;">
+                        <h2 style="font-size: clamp(1rem, 4vw, 1.35rem);">التنبيهات والتذكيرات</h2>
+                        <p class="modal-subtitle">إشعارات مخصصة ونغمة رنين من هاتفك.</p>
                     </div>
                 </div>
-                <button class="modal-close-btn" id="close-reminders-modal">&times;</button>
+                <button class="modal-close-btn" id="close-reminders-modal" style="flex-shrink: 0;">&times;</button>
             </div>
 
             <div class="modal-body">
                 <!-- Browser Permission Bar -->
                 <div class="reminder-perm-card">
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-                        <div>
-                            <div style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0.2rem;">
-                                حالة إشعارات المتصفح ${permBadge}
-                            </div>
-                            <div style="font-size: 0.8rem; color: var(--text-secondary);">
-                                ${permissionState === 'granted' 
-                                    ? 'ستصلك التنبيهات مع الرنين الصوتي حتى عند عمل التطبيق في الخلفية.' 
-                                    : 'اضغط على الزر لتفعيل إشعارات النظام والرنين الصوتي.'}
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            ${permissionState !== 'granted' ? `
-                                <button class="btn btn-primary btn-sm" id="btn-request-notif-perm">
-                                    السماح بالإشعارات
-                                </button>
-                            ` : ''}
-                            <button class="btn btn-secondary btn-sm" id="btn-test-reminder">
-                                إشعار وتجربة الرنين ⚡
+                    <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.35rem;">
+                        حالة إشعارات المتصفح ${permBadge}
+                    </div>
+                    <div style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+                        ${permissionState === 'granted'
+                            ? 'ستصلك التنبيهات مع الرنين الصوتي حتى عند عمل التطبيق في الخلفية.'
+                            : 'اضغط على الزر لتفعيل إشعارات النظام والرنين الصوتي.'}
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        ${permissionState !== 'granted' ? `
+                            <button class="btn btn-primary" id="btn-request-notif-perm" style="width: 100%; justify-content: center;">
+                                🔔 السماح بالإشعارات
                             </button>
-                        </div>
+                        ` : ''}
+                        <button class="btn btn-secondary" id="btn-test-reminder" style="width: 100%; justify-content: center;">
+                            إشعار وتجربة الرنين ⚡
+                        </button>
                     </div>
                 </div>
 
                 <!-- Custom Ringtone Selection Section -->
-                <div class="reminder-section-box" style="margin-top: 1.25rem;">
+                <div class="reminder-section-box" style="margin-top: 1rem;">
                     <div class="reminder-section-header">
                         <div>
-                            <span class="reminder-section-title">🎵 نغمة رنين التذكيرات من الهاتف</span>
-                            <p class="reminder-section-desc">اختر وحمّل أي نغمة صوتية تفضلها من هاتفك أو جهازك (MP3, WAV, M4A) ليرن بها التطبيق عند موعد التنبيه.</p>
+                            <span class="reminder-section-title">🎵 نغمة رنين التذكيرات</span>
+                            <p class="reminder-section-desc">اختر أي نغمة صوتية من هاتفك (MP3, WAV, M4A).</p>
                         </div>
                     </div>
 
-                    <div style="margin-top: 1rem; background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.75rem;">
-                            <div>
-                                <div style="font-size: 0.75rem; color: var(--text-secondary);">النغمة المفعلة حالياً:</div>
-                                <div style="font-weight: 700; font-size: 0.95rem; color: var(--accent-blue);" id="current-ringtone-name">
-                                    ${ringtone.name || 'نغمة التطبيق الافتراضية (Bell Chime)'}
-                                </div>
-                            </div>
-
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-secondary btn-sm" id="btn-play-preview-ringtone">
-                                    ▶️ استماع وتشغيل
-                                </button>
-                                <button type="button" class="btn btn-secondary btn-sm" id="btn-reset-ringtone" title="استعادة النغمة الافتراضية" style="color: var(--accent-coral);">
-                                    🔄 النغمة الأصلية
-                                </button>
+                    <div style="margin-top: 0.75rem; background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.85rem;">
+                        <div style="margin-bottom: 0.65rem;">
+                            <div style="font-size: 0.72rem; color: var(--text-secondary);">النغمة المفعلة حالياً:</div>
+                            <div style="font-weight: 700; font-size: 0.9rem; color: var(--accent-blue); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" id="current-ringtone-name">
+                                ${ringtone.name || 'نغمة التطبيق الافتراضية (Bell Chime)'}
                             </div>
                         </div>
-
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-play-preview-ringtone" style="flex: 1; justify-content: center; min-width: 100px;">
+                                ▶️ استماع
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-reset-ringtone" style="flex: 1; justify-content: center; min-width: 100px; color: var(--accent-coral);">
+                                🔄 الأصلية
+                            </button>
+                        </div>
                         <!-- Hidden file input triggered by button -->
                         <input type="file" id="ringtone-file-input" accept="audio/*" style="display: none;">
-                        <button type="button" class="btn btn-secondary" id="btn-choose-ringtone-file" style="width: 100%; border-style: dashed; font-size: 0.85rem; padding: 0.65rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                            <span>تحميل نغمة رنين من هاتفك أو جهازك</span>
+                        <button type="button" class="btn btn-secondary" id="btn-choose-ringtone-file" style="width: 100%; border-style: dashed; font-size: 0.82rem; padding: 0.6rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.65rem;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                            <span>تحميل نغمة من الهاتف</span>
                         </button>
-                        <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 0.4rem; text-align: center;">
-                            يدعم ملفات الصوت (MP3, WAV, AAC, M4A, OGG). يتم حفظ الصوت محلياً على جهازك.
+                        <div style="font-size: 0.72rem; color: var(--text-tertiary); margin-top: 0.35rem; text-align: center;">
+                            MP3, WAV, AAC, M4A, OGG — يُحفظ محلياً على جهازك.
                         </div>
                     </div>
                 </div>
 
-                <!-- Custom Scheduled Reminders Section (Add Reason + Time) -->
-                <div class="reminder-section-box" style="margin-top: 1.25rem;">
+                <!-- Custom Scheduled Reminders Section -->
+                <div class="reminder-section-box" style="margin-top: 1rem;">
                     <div class="reminder-section-header">
                         <div>
-                            <span class="reminder-section-title">📝 إضافة تذكير مخصص (سبب ووقت خاص)</span>
-                            <p class="reminder-section-desc">سجل أي سبب إضافي لتذكيرك به في توقيت تختاره بدقة (مثل: مكملات، شيك بروتين، تجهيز الوجبات، نوم، استشفاء...).</p>
+                            <span class="reminder-section-title">📝 تذكير مخصص</span>
+                            <p class="reminder-section-desc">أضف سبباً ووقتاً خاصاً (مكملات، بروتين، نوم...).</p>
                         </div>
                     </div>
 
                     <!-- Add New Custom Reminder Box -->
-                    <div style="background-color: var(--bg-card); border: 1px dashed var(--border-color); border-radius: var(--radius-md); padding: 1rem; margin-top: 1rem;">
-                        <div class="form-group" style="margin-bottom: 0.75rem;">
-                            <label style="font-size: 0.8rem; font-weight: 600;">سبب التذكير الجديد (ماذا تريد أن يذكرك به التطبيق؟):</label>
-                            <input type="text" id="new-custom-remind-title" placeholder="مثال: أخذ مكمل الكرياتين، شرب البروتين بعد التمرين، تجهيز وجبة الغد..." autocomplete="off">
+                    <div style="background-color: var(--bg-card); border: 1px dashed var(--border-color); border-radius: var(--radius-md); padding: 0.85rem; margin-top: 0.75rem;">
+                        <div class="form-group" style="margin-bottom: 0.65rem;">
+                            <label style="font-size: 0.78rem; font-weight: 600;">سبب التذكير:</label>
+                            <input type="text" id="new-custom-remind-title" placeholder="مثال: أخذ مكمل الكرياتين، شرب البروتين..." autocomplete="off">
                         </div>
-
-                        <div style="display: flex; gap: 0.75rem; align-items: flex-end; flex-wrap: wrap;">
-                            <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 130px;">
-                                <label style="font-size: 0.8rem; font-weight: 600;">توقيت التنبيه:</label>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label style="font-size: 0.78rem; font-weight: 600;">توقيت التنبيه:</label>
                                 <input type="time" id="new-custom-remind-time" value="18:00">
                             </div>
-                            <button type="button" class="btn btn-primary" id="btn-add-custom-remind" style="height: 42px; white-space: nowrap;">
+                            <button type="button" class="btn btn-primary" id="btn-add-custom-remind" style="width: 100%; justify-content: center;">
                                 + إضافة هذا التذكير
                             </button>
                         </div>
                     </div>
 
                     <!-- Custom Reminders Active List -->
-                    <div style="margin-top: 1rem;">
-                        <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                    <div style="margin-top: 0.85rem;">
+                        <div style="font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.5rem;">
                             التذكيرات المخصصة النشطة:
                         </div>
                         <div id="custom-reminders-list" style="display: flex; flex-direction: column; gap: 0.5rem;">
@@ -146,12 +137,12 @@ window.GymEvo.renderRemindersModal = function(repo, reminderManager) {
                 </div>
 
                 <!-- Core App Reminders Settings Form -->
-                <form id="reminders-form" style="margin-top: 1.5rem;">
+                <form id="reminders-form" style="margin-top: 1rem;">
                     <!-- Master Toggle -->
                     <div class="toggle-card">
-                        <div>
-                            <div style="font-weight: 600; font-size: 0.95rem;">تفعيل التذكيرات الدورية العامة</div>
-                            <div style="font-size: 0.8rem; color: var(--text-secondary);">تشغيل الفحص الذكي وتنبيهات الوزن والوجبات والماء</div>
+                        <div style="flex: 1; min-width: 0; padding-left: 0.5rem;">
+                            <div style="font-weight: 600; font-size: 0.9rem;">التذكيرات الدورية العامة</div>
+                            <div style="font-size: 0.75rem; color: var(--text-secondary);">تنبيهات الوزن والوجبات والماء</div>
                         </div>
                         <label class="switch">
                             <input type="checkbox" id="remind-master" ${settings.enabled ? 'checked' : ''}>
@@ -162,17 +153,17 @@ window.GymEvo.renderRemindersModal = function(repo, reminderManager) {
                     <!-- Weight Reminder Section -->
                     <div class="reminder-section-box">
                         <div class="reminder-section-header">
-                            <div>
-                                <span class="reminder-section-title">⚖️ تذكير قياس الوزن الدوري</span>
-                                <p class="reminder-section-desc">تنبيه أسبوعي أو يومي لقياس وزنك ومتابعة استجابة جسمك.</p>
+                            <div style="flex: 1; min-width: 0;">
+                                <span class="reminder-section-title">⚖️ تذكير قياس الوزن</span>
+                                <p class="reminder-section-desc">تنبيه دوري لقياس وزنك ومتابعة التطور.</p>
                             </div>
-                            <label class="switch">
+                            <label class="switch" style="flex-shrink: 0;">
                                 <input type="checkbox" id="remind-weight-enabled" ${settings.weightReminder.enabled ? 'checked' : ''}>
                                 <span class="slider"></span>
                             </label>
                         </div>
 
-                        <div class="input-row" id="weight-reminder-fields" style="margin-top: 1rem; ${settings.weightReminder.enabled ? '' : 'opacity: 0.5; pointer-events: none;'}">
+                        <div style="margin-top: 0.85rem; display: flex; flex-direction: column; gap: 0.65rem; ${settings.weightReminder.enabled ? '' : 'opacity: 0.5; pointer-events: none;'}" id="weight-reminder-fields">
                             <div class="form-group" style="margin-bottom: 0;">
                                 <label>تكرار التذكير</label>
                                 <select id="remind-weight-freq">
@@ -190,11 +181,11 @@ window.GymEvo.renderRemindersModal = function(repo, reminderManager) {
                     <!-- Meals Reminder Section -->
                     <div class="reminder-section-box">
                         <div class="reminder-section-header">
-                            <div>
-                                <span class="reminder-section-title">🥗 تذكير تسجيل الوجبات اليومية</span>
-                                <p class="reminder-section-desc">تنبيه ذكي عند نسيان تسجيل الوجبات بحلول منتصف اليوم أو المساء.</p>
+                            <div style="flex: 1; min-width: 0;">
+                                <span class="reminder-section-title">🥗 تذكير تسجيل الوجبات</span>
+                                <p class="reminder-section-desc">تنبيه ذكي عند نسيان تسجيل الوجبات.</p>
                             </div>
-                            <label class="switch">
+                            <label class="switch" style="flex-shrink: 0;">
                                 <input type="checkbox" id="remind-meals-enabled" ${settings.mealReminder.enabled ? 'checked' : ''}>
                                 <span class="slider"></span>
                             </label>
@@ -204,20 +195,20 @@ window.GymEvo.renderRemindersModal = function(repo, reminderManager) {
                     <!-- Water & Hydration Section -->
                     <div class="reminder-section-box">
                         <div class="reminder-section-header">
-                            <div>
-                                <span class="reminder-section-title">💧 تذكير شرب الماء والترطيب</span>
-                                <p class="reminder-section-desc">تذكير لطيف كل ساعتين للمحافظة على النشاط البدني والأيضي.</p>
+                            <div style="flex: 1; min-width: 0;">
+                                <span class="reminder-section-title">💧 تذكير شرب الماء</span>
+                                <p class="reminder-section-desc">تذكير لطيف كل ساعتين للترطيب.</p>
                             </div>
-                            <label class="switch">
+                            <label class="switch" style="flex-shrink: 0;">
                                 <input type="checkbox" id="remind-water-enabled" ${settings.waterReminder.enabled ? 'checked' : ''}>
                                 <span class="slider"></span>
                             </label>
                         </div>
                     </div>
 
-                    <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
-                        <button type="button" class="btn btn-secondary" id="cancel-reminders-modal">إغلاق</button>
-                        <button type="submit" class="btn btn-primary">حفظ وتأكيد الإعدادات</button>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.25rem;">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">حفظ وتأكيد الإعدادات ✓</button>
+                        <button type="button" class="btn btn-secondary" id="cancel-reminders-modal" style="width: 100%; justify-content: center;">إغلاق</button>
                     </div>
                 </form>
             </div>
