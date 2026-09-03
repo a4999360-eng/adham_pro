@@ -1,326 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adham Ahmed | Digital Creative Portfolio</title>
-    <meta name="description" content="Portfolio of Adham Ahmed - Professional Video Editor and Web Designer.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <title>Gym Evolution - المساعد الرياضي المتكامل والتغذية الذكية</title>
     
-    <!-- CSS & Fonts -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="منصة Gym Evolution المتقدمة لمتابعة اللياقة البدنية، تتبع السعرات التغذوية والماكروز، تخطيط الجلسات الرياضية ورصد التطور البدني بيانيّاً بأسلوب Calm White العصري.">
+    <meta name="keywords" content="حساب السعرات, BMR, TDEE, جدول تمارين, تتبع الوزن, Gym Evolution, ماكروز, لياقة بدنية">
+    <meta name="author" content="Gym Evolution Team">
     
-    <!-- Meta tags for better SEO -->
-    <meta property="og:title" content="Adham Ahmed Portfolio">
-    <meta property="og:description" content="Sleek, modern web design and video editing portfolio.">
-    <meta property="og:image" content="web_design.png">
+    <!-- PWA & Mobile Web App Meta -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#111118">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Gym Evolution">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='38' fill='%23111118'/><text x='96' y='125' font-size='82' font-family='sans-serif' font-weight='bold' fill='%23FFFFFF' text-anchor='middle'>GE</text></svg>">
+    
+    <!-- Google Identity Services (GSI) -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="dark-mode">
+<body>
 
-    <!-- Custom Cursor -->
-    <div id="cursor"></div>
-
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="container nav-container">
-            <a href="#home" class="logo">Adham<span>.</span></a>
-            
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active" data-lang="nav_home">Home</a></li>
-                <li><a href="#services" class="nav-link" data-lang="nav_services">Services</a></li>
-                <li><a href="#portfolio" class="nav-link" data-lang="nav_portfolio">Portfolio</a></li>
-                <li><a href="#skills" class="nav-link" data-lang="nav_skills">Skills</a></li>
-                <li><a href="#contact" class="nav-link" data-lang="nav_contact">Contact</a></li>
-            </ul>
-
-            <div class="nav-actions">
-                <button class="theme-toggle" id="theme-btn" title="Toggle Theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <select id="lang-select" class="lang-toggle" onchange="changeLanguage()">
-                    <option value="en">EN</option>
-                    <option value="ar">AR</option>
-                </select>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
+    <!-- Mobile Top Header Bar -->
+    <header class="mobile-top-header">
+        <div class="logo-container" style="margin-bottom: 0;">
+            <div class="logo-icon">GE</div>
+            <span class="logo-text">Gym Evolution</span>
         </div>
-    </nav>
+        <div class="mobile-header-actions">
+            <!-- Quick Unit Switcher (kg / lb) -->
+            <button class="unit-switch-pill" id="mobile-unit-btn" title="تبديل وحدة القياس (كجم / باوند)">
+                <span class="unit-active" id="mobile-unit-label">كجم / سم</span>
+            </button>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="container hero-grid">
-                <div class="hero-content">
-                    <h2 class="reveal active" data-lang="greeting">HELLO, I'M</h2>
-                    <h1 class="reveal active">Adham <span class="typing-text">Ahmed</span></h1>
-                    <p class="reveal active" data-lang="hero_desc">I'm a digital creator specializing in crafting immersive web experiences and cinematic video edits that capture attention.</p>
-                    <div class="hero-btns reveal active">
-                        <a href="#portfolio" class="btn btn-primary">
-                            <span data-lang="view_work">View My Work</span> <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <span data-lang="contact_me">Get in Touch</span>
-                        </a>
+            <!-- PWA Install Button Mobile -->
+            <button class="btn-icon pwa-install-btn" id="mobile-pwa-install-btn" title="تثبيت التطبيق على جهازك للعمل أوفلاين" style="display: none; color: var(--accent-blue);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </button>
+
+            <button class="btn-icon mobile-notif-btn" id="mobile-reminders-btn" title="التنبيهات والتذكيرات">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                <span class="notif-pulse-dot" id="mobile-notif-dot"></span>
+            </button>
+            <div class="profile-avatar mobile-avatar" id="mobile-user-avatar">GM</div>
+        </div>
+    </header>
+
+    <!-- Main App Container Shell -->
+    <div id="app-container">
+        
+        <!-- Sidebar Navigation Drawer (Desktop & Tablet) -->
+        <aside id="desktop-sidebar">
+            <div>
+                <!-- Brand logo area -->
+                <div class="logo-container">
+                    <div class="logo-icon">GE</div>
+                    <div>
+                        <span class="logo-text">Gym Evolution</span>
+                        <span class="logo-version">v1.2</span>
                     </div>
                 </div>
-                <div class="hero-visual reveal active">
-                    <div class="visual-backdrop"></div>
-                    <img src="profile.jpg" alt="Adham" class="main-image">
+
+                <!-- Navigation link list -->
+                <nav>
+                    <a href="#" class="nav-item active" id="nav-dashboard">
+                        <!-- Dashboard icon (SVG) -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>
+                        <span>لوحة التحكم</span>
+                    </a>
                     
-                    <div class="floating-card card-1">
-                        <i class="fas fa-code"></i>
-                        <div class="card-text">
-                            <strong>10+</strong>
-                            <p>Projects</p>
-                        </div>
+                    <a href="#" class="nav-item" id="nav-nutrition">
+                        <!-- Apple/Food icon (SVG) -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v3M12 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM8 9a1 1 0 1 1 2 0v2a1 1 0 1 1-2 0V9zM14 9a1 1 0 1 1 2 0v2a1 1 0 1 1-2 0V9z"></path></svg>
+                        <span>محرك السعرات</span>
+                    </a>
+                    
+                    <a href="#" class="nav-item" id="nav-workout">
+                        <!-- Dumbbell/Dumbbell icon (SVG) -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6.5 6.5h11M6.5 17.5h11M18 5v14M6 5v14M3 8v8M21 8v8M12 5v14"></path></svg>
+                        <span>مخطط التمارين</span>
+                    </a>
+                    
+                    <a href="#" class="nav-item" id="nav-evolution">
+                        <!-- Trend up chart icon (SVG) -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                        <span>تتبع التطور</span>
+                    </a>
+
+                    <a href="#" class="nav-item" id="nav-assistant">
+                        <!-- Bot / Message icon (SVG) -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        <span>مساعد البطل 🦾</span>
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Profile & Google Sign-In Widget at bottom -->
+            <div>
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+                    <button class="sidebar-reminder-btn" id="sidebar-reminders-btn" title="إعدادات التذكيرات" style="margin-bottom: 0; flex: 1;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                        <span>التذكيرات</span>
+                    </button>
+                    <button class="sidebar-unit-toggle" id="sidebar-unit-btn" title="تبديل وحدة القياس (كجم / باوند)">
+                        <span id="sidebar-unit-label">كجم</span>
+                    </button>
+                </div>
+
+                <button class="sidebar-reminder-btn pwa-install-btn" id="sidebar-pwa-install-btn" title="تثبيت التطبيق على جهازك للعمل أوفلاين" style="display: none; width: 100%; margin-bottom: 0.75rem; border-color: var(--accent-blue); color: var(--accent-blue);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>تثبيت التطبيق 📲</span>
+                </button>
+
+                <!-- Google Identity Sign-In Integration Wrapper -->
+                <div id="google-signin-section" style="margin-bottom: 0.75rem;">
+                    <div id="g_id_onload"
+                         data-client_id="452956702998-ivve5qvsvi174l08a3bbfep4cmkqn6o3.apps.googleusercontent.com"
+                         data-context="signin"
+                         data-ux_mode="popup"
+                         data-callback="handleCredentialResponse"
+                         data-auto_prompt="false">
                     </div>
-                    <div class="floating-card card-2">
-                        <i class="fas fa-video"></i>
-                        <div class="card-text">
-                            <strong>Pro</strong>
-                            <p>Editing</p>
-                        </div>
+                    <div id="google-signin-btn-wrap" style="display: flex; justify-content: center; width: 100%;">
+                        <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with" data-size="medium" data-width="215"></div>
                     </div>
+                </div>
+
+                <div class="sidebar-profile" id="user-profile">
+                    <div class="profile-avatar" id="sidebar-user-avatar">GM</div>
+                    <div class="profile-info" style="flex-grow: 1;">
+                        <div class="profile-name" id="sidebar-user-name">اسم المستخدم</div>
+                        <div class="profile-role" id="sidebar-user-role">الهدف البدني</div>
+                    </div>
+                    <button class="btn-icon" id="btn-logout" title="تسجيل الخروج" style="display: none; padding: 0.35rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    </button>
                 </div>
             </div>
-        </section>
+        </aside>
 
-        <!-- Services -->
-        <section id="services" class="services">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h3 data-lang="services_label">EXCELLENCE</h3>
-                    <h2 data-lang="services_title">Professional Services</h2>
-                    <div class="line"></div>
-                </div>
-                
-                <div class="services-grid">
-                    <div class="service-card reveal">
-                        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-                        <h4 data-lang="service_web_title">Web Design</h4>
-                        <p data-lang="service_web_desc">Building modern, responsive, and high-performance websites tailored to your brand's unique identity.</p>
-                    </div>
-                    <div class="service-card reveal">
-                        <div class="service-icon"><i class="fas fa-clapperboard"></i></div>
-                        <h4 data-lang="service_video_title">Video Editing</h4>
-                        <p data-lang="service_video_desc">Transforming raw footage into cinematic masterpieces with professional transitions, grading, and sound design.</p>
-                    </div>
-                    <div class="service-card reveal">
-                        <div class="service-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
-                        <h4 data-lang="service_content_title">Content Creation</h4>
-                        <p data-lang="service_content_desc">Creating engaging short-form content for Reels, TikTok, and YouTube aimed at maximum audience retention.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio -->
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h3 data-lang="portfolio_label">WORK</h3>
-                    <h2 data-lang="portfolio_title">Selected Projects</h2>
-                    <div class="line"></div>
-                </div>
-
-                <div class="portfolio-grid">
-
-
-                    <!-- Project 4 (Fashion) -->
-                    <div class="project-card reveal">
-                        <div class="project-image fashion-logo-card">
-                            <img src="../ZE-Fahion2/logo_alquds.jpg" alt="AL-QUDS Clothing Logo" class="fashion-logo-img">
-                            <div class="project-overlay">
-                                <a href="https://a4999360-eng.github.io/ZE-Fahion2/" target="_blank" class="btn btn-secondary"><i class="fas fa-eye"></i> Preview Project</a>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="tag">E-Commerce</span>
-                                <span class="tag">Fashion</span>
-                            </div>
-                            <h4 data-lang="project4_title">AL-QUDS Clothing</h4>
-                            <p data-lang="project4_desc">A premium luxury line clothing website with a modern aesthetic and seamless shopping experience.</p>
-                            <a href="https://a4999360-eng.github.io/ZE-Fahion2/" target="_blank" class="project-link">Visit Website <i class="fas fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Project 5 (Konnash) -->
-                    <div class="project-card reveal">
-                        <div class="project-image fashion-logo-card">
-                            <img src="konnash.png" alt="Konnash Logo" class="fashion-logo-img">
-                            <div class="project-overlay">
-                                <a href="https://a4999360-eng.github.io/konnash/" target="_blank" class="btn btn-secondary"><i class="fas fa-eye"></i> Preview Project</a>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="tag">Finance</span>
-                                <span class="tag">Web App</span>
-                            </div>
-                            <h4 data-lang="project5_title">Konnash Debt Tracker</h4>
-                            <p data-lang="project5_desc">A web application for tracking debts and managing personal financial records.</p>
-                            <a href="https://a4999360-eng.github.io/konnash/" target="_blank" class="project-link">Visit Website <i class="fas fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section id="skills" class="skills">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h3 data-lang="skills_label">PROFICIENCY</h3>
-                    <h2 data-lang="skills_title">Technical Expertise</h2>
-                    <div class="line"></div>
-                </div>
-
-                <div class="skills-wrapper">
-                    <div class="skills-left reveal">
-                        <h3 data-lang="skills_core">Core Competencies</h3>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span data-lang="skill_web">Web Design (HTML, CSS, JS)</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%;"></div>
-                            </div>
-                        </div>
-
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span data-lang="skill_video">Video Editing</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%;"></div>
-                            </div>
-                        </div>
-
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span data-lang="skill_content">Content Strategy</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skills-right reveal">
-                        <h3 data-lang="tools_label">My Workspace</h3>
-                        <div class="tools-grid">
-                            <div class="tool-item">
-                                <img src="https://img.icons8.com/color/48/adobe-premiere-pro.png" alt="Premiere Pro" width="40" height="40">
-                                <span>Premiere Pro</span>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-scissors"></i>
-                                <span>CapCut PC</span>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-terminal"></i>
-                                <span>VS Code</span>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fab fa-figma"></i>
-                                <span>Figma</span>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fab fa-github"></i>
-                                <span>GitHub</span>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-bolt"></i>
-                                <span>Canva</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="contact-container">
-                    <div class="contact-info reveal">
-                        <h3 data-lang="contact_title">Let's Create Together</h3>
-                        <p data-lang="contact_desc">Have a vision for your next brand design or video project? Let's discuss how we can bring it to life.</p>
-                        
-                        <div class="contact-details">
-                            <div class="contact-method">
-                                <div class="method-icon"><i class="fas fa-envelope"></i></div>
-                                <div class="method-text">
-                                    <h5 data-lang="email_label">Email</h5>
-                                    <p>a4999360@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="contact-method">
-                                <div class="method-icon"><i class="fab fa-whatsapp"></i></div>
-                                <div class="method-text">
-                                    <h5 data-lang="whatsapp_label">WhatsApp</h5>
-                                    <p>+20 115 299 8910</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form-wrapper reveal">
-                        <form class="contact-form" onsubmit="sendMsg(event)">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label data-lang="name_label">Full Name</label>
-                                    <input type="text" id="name" placeholder="John Doe" required>
-                                </div>
-                                <div class="form-group">
-                                    <label data-lang="email_label_field">Email Address</label>
-                                    <input type="email" id="email" placeholder="john@example.com" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label data-lang="msg_label">Your Message</label>
-                                <textarea id="msg" placeholder="Tell me about your project..." required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" data-lang="send_btn">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div class="toast" id="toast">
-        <i class="fas fa-circle-check"></i>
-        <span>Message sent successfully!</span>
+        <!-- Main View Target Shell -->
+        <main id="view-target">
+            <!-- Dynamic pages will be rendered here -->
+        </main>
     </div>
 
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-x-twitter"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="https://wa.me/201152998910"><i class="fab fa-whatsapp"></i></a>
+    <!-- Mobile Bottom Navigation Bar (Visible only on Mobile) -->
+    <nav class="mobile-bottom-nav" id="mobile-bottom-bar">
+        <a href="#" class="bottom-nav-item active" id="bnav-dashboard">
+            <div class="nav-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>
             </div>
-            <p>&copy; 2026 Adham Ahmed. <span data-lang="footer_rights">All rights reserved.</span></p>
-        </div>
-    </footer>
+            <span>الرئيسية</span>
+        </a>
+        <a href="#" class="bottom-nav-item" id="bnav-nutrition">
+            <div class="nav-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v3M12 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM8 9a1 1 0 1 1 2 0v2a1 1 0 1 1-2 0V9zM14 9a1 1 0 1 1 2 0v2a1 1 0 1 1-2 0V9z"></path></svg>
+            </div>
+            <span>السعرات</span>
+        </a>
+        <a href="#" class="bottom-nav-item" id="bnav-workout">
+            <div class="nav-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6.5 6.5h11M6.5 17.5h11M18 5v14M6 5v14M3 8v8M21 8v8M12 5v14"></path></svg>
+            </div>
+            <span>التمارين</span>
+        </a>
+        <a href="#" class="bottom-nav-item" id="bnav-evolution">
+            <div class="nav-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            </div>
+            <span>التطور</span>
+        </a>
+        <a href="#" class="bottom-nav-item" id="bnav-assistant">
+            <div class="nav-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <span>المساعد</span>
+        </a>
+    </nav>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/201152998910" target="_blank" class="whatsapp-float" title="Contact on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <!-- Application Script Files (Sequential Global Order for Offline/CORS-free execution) -->
+    <script src="js/domain/models.js"></script>
+    <script src="js/domain/units.js"></script>
+    <script src="js/domain/bmr.js"></script>
+    <script src="js/domain/foodDb.js"></script>
+    <script src="js/domain/exerciseDb.js"></script>
+    <script src="js/domain/aiAssistant.js"></script>
+    <script src="js/domain/exporter.js"></script>
+    <script src="js/domain/reminderManager.js"></script>
+    <script src="js/data/dbSchema.js"></script>
+    <script src="js/data/localRepository.js"></script>
+    <script src="js/ui/notifier.js"></script>
+    <script src="js/ui/confirmModal.js"></script>
+    <script src="js/ui/remindersModal.js"></script>
+    <script src="js/ui/dashboard.js"></script>
+    <script src="js/ui/nutrition.js"></script>
+    <script src="js/ui/workout.js"></script>
+    <script src="js/ui/evolution.js"></script>
+    <script src="js/ui/assistant.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

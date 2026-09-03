@@ -1,0 +1,27 @@
+{
+  "name": "Gym Evolution - المساعد الرياضي المتكامل",
+  "short_name": "Gym Evolution",
+  "description": "تطبيق متطور لمتابعة التمارين الرياضية وحساب السعرات والماكروز ورصد التطور البدني",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FFFFFF",
+  "theme_color": "#111118",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["fitness", "health", "lifestyle"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='38' fill='%23111118'/><text x='96' y='125' font-size='82' font-family='sans-serif' font-weight='bold' fill='%23FFFFFF' text-anchor='middle'>GE</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='100' fill='%23111118'/><text x='256' y='330' font-size='220' font-family='sans-serif' font-weight='bold' fill='%23FFFFFF' text-anchor='middle'>GE</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
